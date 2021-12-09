@@ -72,7 +72,7 @@ params:
   author: "Manan Shah"
   defaultTheme: auto
   disableThemeToggle: false
-
+  comments: true
   ShowToc: true # show table of contents
   TocOpen: false # show table of contents open
   ShowBreadCrumbs: true
