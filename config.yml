@@ -41,6 +41,7 @@ markup:
     startLevel: 2
 
 enableRobotsTXT: true
+enableEmoji: true
 buildDrafts: false
 buildFuture: false
 buildExpired: false
@@ -81,6 +82,7 @@ params:
   ShowShareButtons: true
   ShowCodeCopyButtons: true
   displayFullLangName: true
+  GoogleAnalyticsID: G-BC120QQNGQ
 
   # editPost:
   #   URL: "https://github.com/aimerneige/blog/content"
@@ -104,11 +106,13 @@ params:
         url: posts
       - name: Tags
         url: tags
+      - name: Subscribe
+        url: "https://tinyletter.com/cs-mshah"
 
   socialIcons:
     - name: github
       url: "https://github.com/cs-mshah"
-    - name: linkdin
+    - name: linkedin
       url: "https://www.linkedin.com/in/manan-shah-2a5779212/"
     - name: RsS
       url: "index.xml"

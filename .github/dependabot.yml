@@ -1,0 +1,17 @@
+version: 2
+updates:
+  # Update all the GitHub Actions we'll use soon
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
+      time: "06:00"
+    labels: ["github-actions", "automerge"]
+
+  # Updates  all Git Submodules (the theme in this case)
+  - package-ecosystem: "gitsubmodule"
+    directory: "/"
+    schedule:
+      interval: "daily"
+      time: "06:00"
+    labels: ["submodule", "automerge"]
