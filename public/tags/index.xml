@@ -1,29 +1,29 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
-  <channel>
-    <title>Tags on Manan&#39;s Blog</title>
-    <link>https://cs-mshah.github.io/tags/</link>
-    <description>Recent content in Tags on Manan&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sat, 04 Dec 2021 01:14:45 +0530</lastBuildDate><atom:link href="https://cs-mshah.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Beginner</title>
-      <link>https://cs-mshah.github.io/tags/beginner/</link>
-      <pubDate>Sat, 04 Dec 2021 01:14:45 +0530</pubDate>
-      
-      <guid>https://cs-mshah.github.io/tags/beginner/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>CP</title>
-      <link>https://cs-mshah.github.io/tags/cp/</link>
-      <pubDate>Sat, 04 Dec 2021 01:14:45 +0530</pubDate>
-      
-      <guid>https://cs-mshah.github.io/tags/cp/</guid>
-      <description></description>
-    </item>
-    
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Tags - Tag - Manan&#39;s Blog</title>
+        <link>https://cs-mshah.github.io/tags/</link>
+        <description>Tags - Tag - Manan&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>mt-shah@hotmail.com (Manan)</managingEditor>
+            <webMaster>mt-shah@hotmail.com (Manan)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 24 May 2023 18:57:20 &#43;0530</lastBuildDate><atom:link href="https://cs-mshah.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>notes</title>
+    <link>https://cs-mshah.github.io/tags/notes/</link>
+    <pubDate>Wed, 24 May 2023 18:57:20 &#43;0530</pubDate><author>
+        <name>Manan</name>
+    </author><guid>https://cs-mshah.github.io/tags/notes/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>Beginner</title>
+    <link>https://cs-mshah.github.io/tags/beginner/</link>
+    <pubDate>Sat, 04 Dec 2021 01:14:45 &#43;0530</pubDate><author>
+        <name>Manan</name>
+    </author><guid>https://cs-mshah.github.io/tags/beginner/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>CP</title>
+    <link>https://cs-mshah.github.io/tags/cp/</link>
+    <pubDate>Sat, 04 Dec 2021 01:14:45 &#43;0530</pubDate><author>
+        <name>Manan</name>
+    </author><guid>https://cs-mshah.github.io/tags/cp/</guid>
+    <description><![CDATA[]]></description>
+</item></channel>
 </rss>

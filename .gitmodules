@@ -4,3 +4,9 @@
 [submodule "themes/hugo-tania"]
 	path = themes/hugo-tania
 	url = https://github.com/WingLim/hugo-tania
+[submodule "themes/LoveIt"]
+	path = themes/LoveIt
+	url = https://github.com/dillonzq/LoveIt.git
+[submodule "themes/DoIt"]
+	path = themes/DoIt
+	url = https://github.com/HEIGE-PCloud/DoIt

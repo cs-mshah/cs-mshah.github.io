@@ -1,0 +1,7 @@
+baseURL: "https://cs-mshah.github.io"
+languageCode: "en-us"
+title: "Manan's Blog"
+# theme: "PaperMod"
+theme: "DoIt"
+defaultContentLanguage: "en"
+enableEmoji: true
