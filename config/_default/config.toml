@@ -1,0 +1,14 @@
+baseURL = "https://cs-mshah.github.io"
+# [en, zh-cn, fr, pl, ...] determines default content language
+languageCode = "en-us"
+defaultContentLanguage = "en"
+# theme
+theme = "DoIt"
+# website title
+title = "Manan's Blog"
+# whether to use robots.txt
+enableRobotsTXT = false
+# whether to use git commit log
+enableGitInfo = false
+# whether to use emoji code
+enableEmoji = true

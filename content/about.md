@@ -1,5 +1,7 @@
 ---
 draft: false
+comment:
+  enable: false
 ---
 {{< image src="/images/avatar.jpg" caption="Me in the Sissu Valley" height="300" width="300" >}}
 
