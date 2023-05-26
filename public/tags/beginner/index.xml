@@ -3,12 +3,11 @@
         <title>Beginner - Tag - Manan&#39;s Blog</title>
         <link>https://cs-mshah.github.io/tags/beginner/</link>
         <description>Beginner - Tag - Manan&#39;s Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>mt-shah@hotmail.com (Manan)</managingEditor>
-            <webMaster>mt-shah@hotmail.com (Manan)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 04 Dec 2021 01:14:45 &#43;0530</lastBuildDate><atom:link href="https://cs-mshah.github.io/tags/beginner/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 04 Dec 2021 01:14:45 &#43;0530</lastBuildDate><atom:link href="https://cs-mshah.github.io/tags/beginner/" rel="self" type="application/rss+xml" /><item>
     <title>Getting started with competitive programming</title>
-    <link>https://cs-mshah.github.io/getting_started_with_cp/</link>
+    <link>https://cs-mshah.github.io/posts/getting-started-with-cp/getting_started_with_cp/</link>
     <pubDate>Sat, 04 Dec 2021 01:14:45 &#43;0530</pubDate><author>
-                        <name>Manan Shah</name><uri>https://github.com/cs-mshah</uri></author><guid>https://cs-mshah.github.io/getting_started_with_cp/</guid>
+                        <name>Manan Shah</name><uri>https://github.com/cs-mshah</uri></author><guid>https://cs-mshah.github.io/posts/getting-started-with-cp/getting_started_with_cp/</guid>
     <description><![CDATA[This post gives a basic setup for CP including setting up CP editor, cf tool, competitive companion, a debugging template and some other resources.]]></description>
 </item></channel>
 </rss>

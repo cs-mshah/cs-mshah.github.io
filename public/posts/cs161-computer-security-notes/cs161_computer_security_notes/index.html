@@ -1,0 +1,1140 @@
+
+
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" />
+    <title>Notes from CS161: Computer Security - Manan&#39;s Blog</title><meta name="Description" content="This contains my notes from the CS161: Computer Security course from UC Berkeley."><meta property="og:title" content="Notes from CS161: Computer Security" />
+<meta property="og:description" content="This contains my notes from the CS161: Computer Security course from UC Berkeley." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://cs-mshah.github.io/posts/cs161-computer-security-notes/cs161_computer_security_notes/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-05-24T18:57:20+05:30" />
+<meta property="article:modified_time" content="2023-05-24T18:57:20+05:30" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Notes from CS161: Computer Security"/>
+<meta name="twitter:description" content="This contains my notes from the CS161: Computer Security course from UC Berkeley."/>
+<meta name="application-name" content="Manan&#39;s Blog">
+<meta name="apple-mobile-web-app-title" content="Manan&#39;s Blog">
+
+<meta name="theme-color" content="#f8f8f8"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="canonical" href="https://cs-mshah.github.io/posts/cs161-computer-security-notes/cs161_computer_security_notes/" /><link rel="prev" href="https://cs-mshah.github.io/posts/getting-started-with-cp/getting_started_with_cp/" />
+<link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/color.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/fontawesome-free/all.min.css">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/animate/animate.min.css">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Notes from CS161: Computer Security",
+        "inLanguage": "en-us",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/cs-mshah.github.io\/posts\/cs161-computer-security-notes\/cs161_computer_security_notes\/"
+        },"genre": "posts","keywords": "notes","wordcount":  5335 ,
+        "url": "https:\/\/cs-mshah.github.io\/posts\/cs161-computer-security-notes\/cs161_computer_security_notes\/","datePublished": "2023-05-24T18:57:20+05:30","dateModified": "2023-05-24T18:57:20+05:30","publisher": {
+            "@type": "Organization",
+            "name": "Author"},"authors": [{
+                        "@type": "Person",
+                        "name": "Manan"                    
+                    }],"description": "This contains my notes from the CS161: Computer Security course from UC Berkeley."
+    }
+    </script><script src="//instant.page/5.2.0" defer type="module" integrity="sha384-jnZyxPjiipYXnSU0ygqeac2q7CVYMbh84q0uHVRRxEtvFPiQYbXWUorga2aqZJ0z"></script>
+</head>
+
+<body header-desktop="" header-mobile=""><script type="text/javascript">
+        function setTheme(theme) {document.body.setAttribute('theme', theme); document.documentElement.style.setProperty('color-scheme', theme === 'light' ? 'light' : 'dark'); window.theme = theme;   window.isDark = window.theme !== 'light' }
+        function saveTheme(theme) {window.localStorage && localStorage.setItem('theme', theme);}
+        function getMeta(metaName) {const metas = document.getElementsByTagName('meta'); for (let i = 0; i < metas.length; i++) if (metas[i].getAttribute('name') === metaName) return metas[i]; return '';}
+        if (window.localStorage && localStorage.getItem('theme')) {let theme = localStorage.getItem('theme');theme === 'light' || theme === 'dark' || theme === 'black' ? setTheme(theme) : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light')); } else { if ('' === 'light' || '' === 'dark' || '' === 'black') setTheme(''), saveTheme(''); else saveTheme('auto'), window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light');}
+        let metaColors = {'light': '#f8f8f8','dark': '#252627','black': '#000000'}
+        getMeta('theme-color').content = metaColors[document.body.getAttribute('theme')];
+        window.switchThemeEventSet = new Set()
+    </script>
+    <div id="back-to-top"></div>
+    <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Manan&#39;s Blog">Manan&#39;s Blog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Manan&#39;s Blog">Manan&#39;s Blog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+            <div class="container"><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Notes from CS161: Computer Security</h1><div class="post-meta">
+            <div class="post-meta-line">
+                <span class="post-author"><span class='author'><span class="author fas fa-user-circle fa-fw"></span><span class='screen-reader-text'>  </span><a href='https://cs-mshah.github.io/authors/manan'>Manan Shah</a></span>
+                </span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-05-24">2023-05-24</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2023-05-24">2023-05-24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;5335 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;26 minutes&nbsp;</div>
+        </div><div class="content" id="content"><h2 id="what-this-post-is-about" class="headerLink">
+    <a href="#what-this-post-is-about" class="header-mark"></a>What this post is about</h2><p><a href="https://textbook.cs161.org/" target="_blank" rel="noopener noreferrer">CS161 | Computer Security</a> is a good introductory course on computer security. It covers basics of <a href="https://textbook.cs161.org/memory-safety/" target="_blank" rel="noopener noreferrer">Memory Safety</a>, <a href="https://textbook.cs161.org/crypto/" target="_blank" rel="noopener noreferrer">Cryptography</a>, <a href="https://textbook.cs161.org/web/" target="_blank" rel="noopener noreferrer">Web Security</a> and <a href="https://textbook.cs161.org/network/" target="_blank" rel="noopener noreferrer">Network Security</a>. Their textbook was one of the reference books for an introductory computer security course that I had taken in college under <a href="https://drravimittal.github.io/" target="_blank" rel="noopener noreferrer">Dr. Ravi Mittal</a>.</p>
+<p>I just thought of posting some notes that I had made from the textbook while reading from some of the sections. I think these might be useful for people who want to get the key points at a glance, although I would <em>highly recommend</em> reading the textbook, which in itself is crisp.</p>
+<p>You can directly jump to any section from the table of contents. Here you go!</p>
+<h2 id="cryptography" class="headerLink">
+    <a href="#cryptography" class="header-mark"></a>Cryptography</h2><h3 id="basics" class="headerLink">
+    <a href="#basics" class="header-mark"></a>Basics</h3><ul>
+<li><strong>Kerckhoff’s Principle</strong> is a security principle which states that cryptosystems should remain <em>secure even when the attacker knows all the internal details</em> of the system, except the key.</li>
+<li><strong>Shannon&rsquo;s maxim</strong> is a security principle wherein the <em>enemy knows the system</em>, meaning that you should assume that the attacker knows every detail about the system you are working with. (Don’t rely on security through obscurity)</li>
+<li><strong>Actors</strong>
+<ul>
+<li>Alice and Bob: The main characters trying to send messages to each other over an insecure communication channel.
+<ul>
+<li>Carol and Dave can also join the party later</li>
+</ul>
+</li>
+<li><strong>Eve</strong>: An eavesdropper who <em>can read any data sent over the channel</em> (an honest-but-curious attacker).</li>
+<li><strong>Mallory</strong>: A manipulator who <em>can read and modify any data</em> sent over the channel (a malicious attacker).</li>
+</ul>
+</li>
+<li><strong>CIA model</strong>
+<ul>
+<li><strong>Confidentiality</strong> is a goal of cryptography wherein the adversary cannot read our messages. Essentially, the ciphertext should not give the attacker any additional information about the plaintext.
+<ul>
+<li>experiment: Alice has encrypted and sent one of two messages, either $M_0$ or $M_1$, and the attacker, Eve, has no idea which was sent. Eve tries to guess which was sent by looking at the ciphertext. If the encryption scheme is confidential, then Eve’s probability of guessing which message was sent should be $1/2$.</li>
+<li>This experiment can be applied to different threat models.</li>
+</ul>
+</li>
+<li><strong>Integrity</strong> is a goal of cryptography wherein the adversary cannot change any messages without being detected.</li>
+<li><strong>Authenticity</strong> is a goal of cryptography wherein one can prove that a message came from the person who claims to have written it.</li>
+</ul>
+</li>
+<li><strong>Symmetric and Asymmetric-Key Cryptography</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">property</th>
+<th style="text-align:left">Symmetric-key</th>
+<th style="text-align:left">Asymmetric-key</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Confidentiality</td>
+<td style="text-align:left">Block ciphers with chaining modes (e.g., AES-CBC)</td>
+<td style="text-align:left">Public-key encryption(e.g., El Gamal, RSA encryption)</td>
+</tr>
+<tr>
+<td style="text-align:left">Integrity and authentication</td>
+<td style="text-align:left">MACs (e.g., AES-CBC-MAC)</td>
+<td style="text-align:left">Digital signatures (e.g., RSA signatures). Alice computes a digital signature of her message using her private key, and appends the signature to her message. When Bob receives the message and its signature, he will be able to use Alice’s public key</td>
+</tr>
+<tr>
+<td style="text-align:left">Scheme overview</td>
+<td style="text-align:left">Alice uses her secret key to encrypt a message, and Bob uses the same secret key to decrypt the message</td>
+<td style="text-align:left">Alice can encrypt her message under Bob&rsquo;s public key and Bob will be able to decrypt using his private key.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p><strong>Threat models</strong></p>
+<ul>
+<li>column 2: can eve trick <em>Alice</em> <figure><a class="lightgallery" href="https://i.imgur.com/gvqiMkv.png" title="https://i.imgur.com/gvqiMkv.png" data-thumbnail="https://i.imgur.com/gvqiMkv.png">
+        <img
+            
+            loading="lazy"
+            src="https://i.imgur.com/gvqiMkv.png"
+            srcset="https://i.imgur.com/gvqiMkv.png, https://i.imgur.com/gvqiMkv.png 1.5x, https://i.imgur.com/gvqiMkv.png 2x"
+            sizes="auto"
+            alt="https://i.imgur.com/gvqiMkv.png">
+    </a></figure></li>
+<li>highlight - focus of this course.</li>
+<li>encryption algorithms provide security against chosen-plaintext/ciphertext attacks, both because those attacks are practical in some settings, and because it is in fact feasible to provide good security even against this very powerful attack model.</li>
+<li>replay-attack: eve can send Bob a repeated encrypted message from Alice.</li>
+</ul>
+</li>
+<li>
+<p><strong>IND-CPA secure</strong> (indistinguishability under chosen plaintext attack): even if Eve can trick Alice into encrypting some messages, she still cannot distinguish whether Alice sent $M_0$ or $M_1$ with probability greater than half.</p>
+<ul>
+<li>if a scheme leaks the plaintext length, it can still be considered IND-CPA secure. (because not leaking length information is impractical)</li>
+<li>Eve is limited to a practical number of encryption requests.
+<ul>
+<li>any algorithm Eve uses during the game must run in $O(n^k)$ time, for some constant $k$.</li>
+</ul>
+</li>
+<li>Eve only wins if she has a non-negligible advantage.</li>
+<li>Only <em>non-deterministic schemes are IND-CPA secure</em> as nothing is preventing Eve from asking Alice again.</li>
+</ul>
+</li>
+<li>
+<p><strong>One-time pad</strong></p>
+<ul>
+<li>Key generation: Alice and Bob pick a shared random key $K$.</li>
+<li>Encryption $C=M\oplus{K}$</li>
+<li>Decryption $M=C\oplus{K}$</li>
+<li>IND-CPA secure</li>
+<li>The shared key cannot be reused to transmit another message M′, making this infeasible for practical purposes as new keys need to be generated every time.</li>
+</ul>
+</li>
+</ul>
+<h3 id="block-ciphers" class="headerLink">
+    <a href="#block-ciphers" class="header-mark"></a>Block Ciphers</h3><ul>
+<li>A block cipher transforms a fixed-length, $n$-bit input into a fixed-length $n$-bit output.</li>
+<li>Encryption function $E:\{0,1\}^k \times \{0,1\}^n \rightarrow \{0,1\}^n$ is a permutation of the $n$-bit input string, given some fixed $k$-bit key. This function is invertible and bijective as it should allow decryption.</li>
+<li>Most common: AES (Advanced Encryption Standard). ($n$ = 128, $k$ = 128). AES is computationally indistinguishable from random. (no proof. but believed to be)</li>
+<li>Block ciphers alone are not IND-CPA secure as they are deterministic.
+<ul>
+<li>To solve this randomization is needed.</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Mode</th>
+<th style="text-align:left">Encryption</th>
+<th style="text-align:left">Decryption</th>
+<th style="text-align:left">Parallelizable</th>
+<th style="text-align:left">IND-CPA secure</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">ECB (electronic code book)</td>
+<td style="text-align:left">$C_i=E_K(M_i)$</td>
+<td style="text-align:left">$M_i=D_K(C_i)$</td>
+<td style="text-align:left">Both Encryption and Decrytion</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">CBC (cipher block chaining)</td>
+<td style="text-align:left">$\begin{cases} C_0 = IV \cr C_i = E_K(P_i \oplus C_{i-1}) \end{cases}$</td>
+<td style="text-align:left">$P_i = D_K(C_i) \oplus C_{i-1}$</td>
+<td style="text-align:left">Only Decryption</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">CFB (ciphertext feedback)</td>
+<td style="text-align:left">$\begin{cases} C_0 = IV \cr C_i = E_K(C_{i-1}) \oplus P_i \end{cases}$</td>
+<td style="text-align:left">$P_i = E_K(C_{i-1}) \oplus C_i$</td>
+<td style="text-align:left">Only Decryption</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">OFB (output feedback)</td>
+<td style="text-align:left">$\begin{cases} Z_0 = IV \cr Z_i = E_K(Z_{i-1}) \cr C_i = M_i \oplus Z_i \end{cases}$</td>
+<td style="text-align:left">$P_i = C_i \oplus Z_i$</td>
+<td style="text-align:left">Only Decryption</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">CTR (counter)</td>
+<td style="text-align:left">$C_i = E_K(IV + i) \oplus M_i$</td>
+<td style="text-align:left">$M_i = E_K(IV + i) \oplus C_i$</td>
+<td style="text-align:left">Both Encryption and Decryption</td>
+<td style="text-align:left">Yes. $IV$ loss catastrophic</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>ECB(electronic code book) mode</strong>
+<ul>
+<li>plaintext $M$ is simply broken into $n$-bit blocks $M_1 \dots M_l$,</li>
+<li>Encryption: $C_i=E_K(M_i)$</li>
+<li>Decryption $M_i=D_K(C_i)$</li>
+<li>flawed as it leaks information. (if $M_i=M_j$ then $C_i=C_j$) <figure><a class="lightgallery" href="https://textbook.cs161.org/assets/images/crypto/symmetric/ECB_decryption.png" title="https://textbook.cs161.org/assets/images/crypto/symmetric/ECB_decryption.png" data-thumbnail="https://textbook.cs161.org/assets/images/crypto/symmetric/ECB_decryption.png">
+        <img
+            
+            loading="lazy"
+            src="https://textbook.cs161.org/assets/images/crypto/symmetric/ECB_decryption.png"
+            srcset="https://textbook.cs161.org/assets/images/crypto/symmetric/ECB_decryption.png, https://textbook.cs161.org/assets/images/crypto/symmetric/ECB_decryption.png 1.5x, https://textbook.cs161.org/assets/images/crypto/symmetric/ECB_decryption.png 2x"
+            sizes="auto"
+            alt="https://textbook.cs161.org/assets/images/crypto/symmetric/ECB_decryption.png">
+    </a></figure></li>
+</ul>
+</li>
+<li><strong>CBC(cipher block chaining) mode</strong>
+<ul>
+<li>$IV$ : random $n$-bit string called initialization vector, new for every message (to be used only <strong>once</strong>), public. (also called <em>nonce - number used once</em>)</li>
+<li>Encryption: $\begin{cases} C_0 = IV \cr C_i = E_K(P_i \oplus C_{i-1}) \end{cases}$ (<strong>Cannot</strong> be parallelized)</li>
+<li>Decryption: $P_i = D_K(C_i) \oplus C_{i-1}$ (<strong>Can</strong> be parallelized) <figure><a class="lightgallery" href="https://textbook.cs161.org/assets/images/crypto/symmetric/CBC_encryption.png" title="image#invert" data-thumbnail="https://textbook.cs161.org/assets/images/crypto/symmetric/CBC_encryption.png">
+        <img
+            
+            loading="lazy"
+            src="https://textbook.cs161.org/assets/images/crypto/symmetric/CBC_encryption.png"
+            srcset="https://textbook.cs161.org/assets/images/crypto/symmetric/CBC_encryption.png, https://textbook.cs161.org/assets/images/crypto/symmetric/CBC_encryption.png 1.5x, https://textbook.cs161.org/assets/images/crypto/symmetric/CBC_encryption.png 2x"
+            sizes="auto"
+            alt="https://textbook.cs161.org/assets/images/crypto/symmetric/CBC_encryption.png">
+    </a></figure></li>
+<li>strong security guarantees</li>
+</ul>
+</li>
+<li><strong>CFB Mode (Ciphertext Feedback Mode)</strong>
+<ul>
+<li>Encryption: $\begin{cases} C_0 = IV \cr C_i = E_K(C_{i-1}) \oplus P_i \end{cases}$</li>
+<li>Decryption: $P_i = E_K(C_{i-1}) \oplus C_i$ <figure><a class="lightgallery" href="https://textbook.cs161.org/assets/images/crypto/symmetric/CFB_encryption.png" title="https://textbook.cs161.org/assets/images/crypto/symmetric/CFB_encryption.png" data-thumbnail="https://textbook.cs161.org/assets/images/crypto/symmetric/CFB_encryption.png">
+        <img
+            
+            loading="lazy"
+            src="https://textbook.cs161.org/assets/images/crypto/symmetric/CFB_encryption.png"
+            srcset="https://textbook.cs161.org/assets/images/crypto/symmetric/CFB_encryption.png, https://textbook.cs161.org/assets/images/crypto/symmetric/CFB_encryption.png 1.5x, https://textbook.cs161.org/assets/images/crypto/symmetric/CFB_encryption.png 2x"
+            sizes="auto"
+            alt="https://textbook.cs161.org/assets/images/crypto/symmetric/CFB_encryption.png">
+    </a></figure></li>
+</ul>
+</li>
+<li><strong>OFB Mode (Output Feedback Mode)</strong>
+<ul>
+<li>Encryption: $\begin{cases} Z_0 = IV \cr Z_i = E_K(Z_{i-1}) \cr C_i = M_i \oplus Z_i \end{cases}$</li>
+<li>Decryption: $P_i = C_i \oplus Z_i$</li>
+</ul>
+</li>
+<li><strong>Counter (CTR) Mode</strong>
+<ul>
+<li>Encryption: $C_i = E_K(IV + i) \oplus M_i$</li>
+<li>Decryption: $M_i = E_K(IV + i) \oplus C_i$</li>
+</ul>
+</li>
+<li>Note that all the above schemes can be tampered by simply swapping different ciphertext blocks, thus providing <strong>C</strong>onfidentiality but not <strong>I</strong>ntegrity and <strong>A</strong>uthenticity.</li>
+<li><strong>Padding</strong>
+<ul>
+<li>Used when message isn&rsquo;t multiple of block size.</li>
+<li>Padding scheme <code>PKCS#7</code>: pad the message by the number of padding bytes used.</li>
+<li>Used in CBC (cipher block chaining) mode but not in CTR (counter) mode. See the decryption function to decide.</li>
+</ul>
+</li>
+</ul>
+<h3 id="cryotographic-hashes" class="headerLink">
+    <a href="#cryotographic-hashes" class="header-mark"></a>Cryotographic Hashes</h3><ul>
+<li><strong>One Way</strong>: $y=H(x)$. Not possible to find $x$ s.t $H(x)=y$ for a given $y$.</li>
+<li><strong>Second preimage resistant</strong>: infeasible to find another input $x&rsquo;$ such that $x&rsquo; \neq x$ but $H(x)=H(x&rsquo;)$.</li>
+<li><strong>Collision resistant</strong>: infeasible to find <em>any</em> pair of messages $x,x&rsquo;$ such that $x \neq x&rsquo;$ but $H(x)=H(x&rsquo;)$. (practically infeasible)</li>
+<li><strong>Example use case</strong>: If publicised hash is authentic, then we can compare the publicised hash with the downloaded software/file&rsquo;s hash to check if it hasn&rsquo;t been tampered with.</li>
+<li><strong>Algorithms</strong>
+<ul>
+<li>MD5, SHA-1: broken</li>
+<li>SHA-2 (vulnerable to length extension attack), SHA-3: in use</li>
+<li>selection: relate output length to corresponding symmetric key algorithm. For AES-128, use SHA-256 or SHA-384, making cracking equally difficult</li>
+</ul>
+</li>
+</ul>
+<h3 id="message-authentication-codes-macs" class="headerLink">
+    <a href="#message-authentication-codes-macs" class="header-mark"></a>Message Authentication Codes (MACs)</h3><ul>
+<li>The MAC on a message $M$  is a value $F(K,M)$ computed from $K$ and $M$; the value $F(K,M)$ is called the <em>tag</em> for $M$ or the MAC of $M$. Typically, we might use a 128-bit key $K$ and 128-bit tags.</li>
+<li>While sending a message send $\langle M,T \rangle$.</li>
+<li>To check integrity and authenticity, compute the MAC of the message part and compare with the Tag.</li>
+<li>Deterministic as it is used for comparing.</li>
+<li><strong>Does not guarantee confidentiality. Only Authenticity and Integrity</strong></li>
+<li>No eve should be able to generate valid MAC for unseen messages.</li>
+<li>MACs provide security against chosen-plaintext/ciphertext attacks.</li>
+<li><strong>AES-EMAC</strong>
+<ul>
+<li>$K=\langle K_1, K_2 \rangle$</li>
+<li>$M = P_1 \Vert P_2 \Vert &hellip; \Vert P_n$</li>
+<li>$S_0=0$, $S_i=AES_{K_1}(S*i-1 \oplus P_i)$</li>
+<li>$T=AES_{K_2}(S_n)$</li>
+<li>provably secure assuming AES is secure.</li>
+</ul>
+</li>
+<li><strong>HMAC (Hash Message Authentication Code)</strong>
+<ul>
+<li>when using with a block cipher, choose an HMAC whose output is $2 \times key$ length used for the associated block cipher.</li>
+<li>output of HMAC is the same number of bits as the underlying hash function</li>
+<li>$\text{NMAC}(K_1, K_2, M) = H(K_1 \Vert H(K_2 \Vert M))$</li>
+<li>HMAC (uses only 1 key) is a more specific version of NMAC</li>
+</ul>
+</li>
+<li><strong>Authenticated encryption</strong>
+<ul>
+<li><em>encrypt-then-MAC</em>
+<ul>
+<li>$\langle \mathsf{Enc}_{K_1}(M), \mathsf{MAC}_{K_2}(\mathsf{Enc}_{K_1}(M))\rangle$</li>
+<li>better approach.</li>
+</ul>
+</li>
+<li><em>MAC-then-encrypt approach</em>
+<ul>
+<li>$\mathsf{Enc}_{K_1}(M \Vert \mathsf{MAC}_{K_2}(M))$</li>
+<li>only detect if the message is tampered after we decrypt it.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="pseudorandom-number-generators" class="headerLink">
+    <a href="#pseudorandom-number-generators" class="header-mark"></a>Pseudorandom Number Generators</h3><ul>
+<li><em>Seed(entropy)</em>: Take in some initial truly random entropy and initialize the pRNGs internal state.</li>
+<li><em>Reseed(entropy)</em>: Take in some additional truly random entropy, updating the pRNGs internal state as needed.</li>
+<li><em>Generate(n)</em>: Generate $n$ pseudorandom bits, updating the internal state as needed. Some pRNGs also support adding additional entropy directly during this step.</li>
+<li><em>rollback resistance</em>: previously-generated output of the pRNG should still be computationally indistinguishable from random, even if the attacker knows the current internal state of the pRNG.</li>
+<li><strong>HMAC-DRBG</strong>
+<ul>
+<li>computes HMAC on the previous block of pRNG output. repeats.</li>
+<li>internal state: $K$ and $V$ (message part of HMAC). update after generation of $n$ bits.</li>
+<li>Additional true randomness can also be provided.</li>
+</ul>
+</li>
+<li><strong>Stream-Cipher</strong>
+<ul>
+<li>encrypt a stream of bytes coming (Ex. movie)</li>
+<li>Use one time pad for encryption and decryption of every bit.</li>
+<li>bits generated using pRNG</li>
+<li>Secret key is used to seed the pRNG</li>
+<li>use an additional $IV$ to seed.</li>
+<li>Encryption: $Enc(K, M) = \langle IV, PRNG(K, IV) \oplus M \rangle$</li>
+<li>Decryption: $Dec(K, IV, C_2) = PRNG(K, IV) \oplus C_2$</li>
+<li>Use of counter in stream cipher: ability to encrypt or decrypt an arbitrary point in the message without starting from the beginning</li>
+</ul>
+</li>
+</ul>
+<h3 id="diffie-hellman-key-exchange" class="headerLink">
+    <a href="#diffie-hellman-key-exchange" class="header-mark"></a>Diffie-Hellman Key Exchange</h3><ul>
+<li>Remember the paint exchange analogy. One public paint colour is known. Alice and Bob exchange public paint mixed with their own secret colours and then add their own colour to the received mix to generate the common secret key.</li>
+<li><strong>One way function</strong>
+<ul>
+<li>$f$ s.t given $x$, it is easy to compute $f(x)$, but given $y$, it is practically impossible to find a value $x$ s.t $f(x)=y$</li>
+<li>Ex. $f(x) = g^x \bmod p$. ($p$ is a large prime and $1&lt;g&lt;p-1$)</li>
+<li><em>discrete logarithm problem</em>: computationally hard to solve</li>
+</ul>
+</li>
+<li>$g$, $p$ are fixed and public</li>
+<li>$A = g^a \bmod p$</li>
+<li>$B = g^b \bmod p$. ($a$, $b$ $\in {0,1,\dots,p-2}$)</li>
+<li>$S = B^a = A^b = g^{ab} = g^{ba} \bmod p$. $S$ is the shared secret.</li>
+<li>Elliptic curve Diffie-Hellman: smaller keys with same security</li>
+<li>Protocol only resistant against Eve but not Mallory.
+<figure><a class="lightgallery" href="https://textbook.cs161.org/assets/images/crypto/key-exchange/diffie_mitm.png" title="Diagram of the Diffie Hellman key exchange between Alice and Bob with Mallory in the middle" data-thumbnail="https://textbook.cs161.org/assets/images/crypto/key-exchange/diffie_mitm.png">
+        <img
+            
+            loading="lazy"
+            src="https://textbook.cs161.org/assets/images/crypto/key-exchange/diffie_mitm.png"
+            srcset="https://textbook.cs161.org/assets/images/crypto/key-exchange/diffie_mitm.png, https://textbook.cs161.org/assets/images/crypto/key-exchange/diffie_mitm.png 1.5x, https://textbook.cs161.org/assets/images/crypto/key-exchange/diffie_mitm.png 2x"
+            sizes="auto"
+            alt="https://textbook.cs161.org/assets/images/crypto/key-exchange/diffie_mitm.png">
+    </a></figure></li>
+<li>Happens due to lack of integrity and authenticity.</li>
+</ul>
+<h3 id="public-key-encryption" class="headerLink">
+    <a href="#public-key-encryption" class="header-mark"></a>Public Key Encryption</h3><ul>
+<li>Public-key cryptography provides a nice way to help with the key management problem. Alice can pick a secret key $K$ for some symmetric-key cryptosystem, then encrypt $K$ under Bob’s public key and send Bob the resulting ciphertext. Bob can decrypt using his private key and recover $K$. Then Alice and Bob can communicate using a symmetric-key cryptosystem, with $K$ as their shared key, from there on.</li>
+<li><strong>trapdoor one-way function</strong>: same as a one-way function, but given $y$ and a special backdoor $K$, it is easy to find an $x$ s.t $f(x)=y$.
+<ul>
+<li>given a private key $PK$ and a ciphertext $y$, it is easy for find $x=f^{-1}(y)$.</li>
+</ul>
+</li>
+<li><strong>El Gamal encryption</strong>:
+<ul>
+<li><em>System parameters:</em> a 2048-bit prime $p$, and a value $g$ in the range $2 \ \dots p − 2$. Both are arbitrary, fixed, and public.</li>
+<li><em>Key generation:</em> Bob picks $b$ in the range $0 \dots p − 2$ randomly, and computes $B = g^b \bmod p$. His public key is $B$ and his private key is $b$.</li>
+<li><em>Encryption:</em> $E_B(m) = (g^r \bmod p, m \times B^r \bmod p)$ where $r$ (Alice&rsquo;s private key) is chosen randomly from $0 \dots p − 2$, let $R = g^r \bmod p$.</li>
+<li><em>Decryption:</em> $D_b(R,S) = R^{−b} \times S \bmod p$.</li>
+</ul>
+</li>
+<li><strong>RSA encryption</strong>:
+<ul>
+<li><em>Key generation:</em>
+<ul>
+<li>$p, q$ random 2 large primes.</li>
+<li>$N=pq$</li>
+<li>let $e$ (usually 3, 17, 65, 537) be such that $gcd(e, (p - 1)(q - 1)) = 1$</li>
+<li>Public Key: $(N, e)$</li>
+<li>Private Key: $d = e^{-1} \bmod (p-1)(q-1)$</li>
+</ul>
+</li>
+<li><em>Enc(e, N, M):</em> $C = M^e \bmod N$</li>
+<li><em>Dec(d, C):</em> $C^d \bmod N$.</li>
+</ul>
+</li>
+<li>RSA isn&rsquo;t IND-CPA secure (because deterministic).
+<ul>
+<li>to counter this, OAEP (Optimal Asymmetric Encryption Padding) is used.</li>
+</ul>
+</li>
+<li>RSA uses two variables during encryption while El Gamal uses three variables</li>
+<li>Public key cryptography relies on the fact that the published public key <em>really</em> belongs to the person it is supposed to. Is the public key integrity maintained?</li>
+<li><strong>Session keys</strong>: because public key cryptography is computationally expensive, we use it to distribute session keys. These keys are symmetric keys used for various purposes - encrypting messages and in MACs.</li>
+</ul>
+<h3 id="digital-signatures" class="headerLink">
+    <a href="#digital-signatures" class="header-mark"></a>Digital Signatures</h3><ul>
+<li>Needed for non repudiation
+<ul>
+<li>In case of symmetric keys, we cannot prove who generated the message.</li>
+</ul>
+</li>
+<li>Asymmetric algorithms</li>
+<li>On its own doesn&rsquo;t provide confidentiality</li>
+<li>Use private key while signing</li>
+<li><em>Key generation</em>: There is a randomized algorithm $KeyGen$ that outputs a matching public key and private key: $(PK,SK) = KeyGen()$ . Each invocation of $KeyGen$ produces a new keypair.</li>
+<li><em>Signing</em>: There is a signing algorithm Sign: $S = Sign(SK,M)$ is the signature on the message $M$ (with private key $SK$).</li>
+<li><em>Verification</em>: There is a verification algorithm $Verify$, where $Verify(PK,M,S)$ returns true if $S$ is a valid signature on $M$ (with public key $PK$) or false if not.</li>
+<li>RSA Signatures: $H(M) = F_U(S)$. $S$ is the signature, $H$ is the hash function. $F$ is a trapdoor one-way function, $U$ - public key.
+<ul>
+<li>The signer computes $S = F^{-1}(H(M))$ as he has the private key $K$</li>
+<li>Because $H$ is one way and $F$&rsquo;s trapdoor is not known to the attacker, the message cannot be decrypted by an attacker.</li>
+<li>Hash allows signing large messages.</li>
+</ul>
+</li>
+<li>digital envelop
+<ul>
+<li>message + signature is visible. used for confidentiality. uses symmetric keys too.</li>
+</ul>
+</li>
+</ul>
+<h3 id="digital-certificates" class="headerLink">
+    <a href="#digital-certificates" class="header-mark"></a>Digital certificates</h3><ul>
+<li>how do we know that the public key is authentic as claimed by the person?
+<ul>
+<li>MITM attack on public keys</li>
+</ul>
+</li>
+<li><em>Digital certificates</em> are a way to represent an alleged association between a person’s name and their public key, as attested by some certifying party.</li>
+<li>The certifying party signs a message with the name and public key of the person with its own private key.</li>
+<li>For Alice to communicate with Bob, she needs to trust the certifying authority and have its trusted correct public key to decrypt the message and obtain Bob&rsquo;s public key.</li>
+<li>The public key of the trusted CA can be hardcoded in applications that need to use cryptography.</li>
+<li>Web browsers come configured with a list of many trusted CAs.</li>
+<li><em>certificate chain</em>: a sequence of certificates, each of which authenticates the public key of the party who has signed the next certificate in the chain.</li>
+<li><em>Revocation</em>: CA can issue certificates with <em>validity periods</em> and additionally list invalid certificates through <em>revocation lists</em>.
+<ul>
+<li>Risk: DoS attack on the revocation list servers.</li>
+</ul>
+</li>
+<li>roughly 150 root CAs</li>
+</ul>
+<h3 id="bitcoin" class="headerLink">
+    <a href="#bitcoin" class="header-mark"></a>Bitcoin</h3><ul>
+<li>The goal of Bitcoin is to replicate these basic properties of a <em>functioning currency system</em>, but <em>without any centralized party</em>. Instead of relying on a trusted entity, Bitcoin <em>uses cryptography</em> to enforce the basic properties of currency.</li>
+<li>Identity: Public key of a user.</li>
+<li>Messages:
+<ul>
+<li>$PK_A$ sends $n$ units of currency to $PK_B$</li>
+<li>anyone can confirm this</li>
+</ul>
+</li>
+<li>Balances
+<ul>
+<li>Trusted ledger
+<ul>
+<li>A ledger is a written record that everybody can view</li>
+<li>append only, immutable</li>
+<li>distributed</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Hash chains
+<ul>
+<li>if you get the hash of the latest block from a trusted source, then you can verify that all of the previous history is correct</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Block 1</th>
+<th>Block 2</th>
+<th>Block 3</th>
+<th>Block 4</th>
+<th>Block 5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$m_1$</td>
+<td>$m_2, H(\text{Block}_1)$</td>
+<td>$m_3, H(\text{Block}_2)$</td>
+<td>$m_4, H(\text{Block}_3)$</td>
+<td>$m_5, H(\text{Block}_4)$</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>consensus
+<ul>
+<li>every participant in the network stores the entire blockchain (and thus all of its history) since we don’t utilize a centralized server.</li>
+<li>new transaction, is broadcast to everyone, and verified by all. If the transaction is correct, everyone will append it to their local blockchain.</li>
+<li>assumption - majority of the users are honest (more than half)</li>
+</ul>
+</li>
+<li>Consensus via proof of work
+<ul>
+<li><em>miners</em> - can only add a block if they have a valid proof of work</li>
+<li>a computational puzzle that takes the hash of the current block concatenated with a random number. This random number can be incremented so that the hash changes, until the proof of work is solved.</li>
+<li>Miners then broadcast blocks with their proof of work. All honest miners listen for such blocks, check the blocks for correctness, and <em>accept the longest correct chain</em>.</li>
+<li>By always accepting the longest blockchain, all the miners are ensured to have the same blockchain view.</li>
+</ul>
+</li>
+<li>Sybil attack
+<ul>
+<li>small number of users counterfeiting multiple peer identities so as to compromise a disproportionate share of the system.</li>
+<li>Majority is defined by computational power.</li>
+</ul>
+</li>
+</ul>
+<h2 id="network-security" class="headerLink">
+    <a href="#network-security" class="header-mark"></a>Network Security</h2><h3 id="introduction-to-networking" class="headerLink">
+    <a href="#introduction-to-networking" class="header-mark"></a>Introduction to Networking</h3><ul>
+<li>A group of local machines forms a <strong>local area network (LAN)</strong>.
+<ul>
+<li>all machines are connected to all other machines</li>
+</ul>
+</li>
+<li>A <strong>router</strong> is used to connect multiple LANs.</li>
+<li><strong>wide area network</strong> forms the basis of the Internet.</li>
+<li>Layers
+<ul>
+<li>Layer 1: Communication of bits</li>
+<li>Layer 2: Local frame delivery
+<ul>
+<li>Ethernet: The most common Layer 2 protocol</li>
+<li>MAC addresses: 6-byte addressing system used by Ethernet</li>
+</ul>
+</li>
+<li>Layer 3: Global packet delivery
+<ul>
+<li>IP: The universal Layer 3 protocol</li>
+<li>IP addresses: 4-byte (32 bit) addressing system used by IP</li>
+</ul>
+</li>
+<li>Layer 4: Transport of data</li>
+<li>Layer 7: Applications and services (the web)</li>
+<li><figure><a class="lightgallery" href="https://i.imgur.com/FWpM6wH.png" title="https://i.imgur.com/FWpM6wH.png" data-thumbnail="https://i.imgur.com/FWpM6wH.png">
+        <img
+            
+            loading="lazy"
+            src="https://i.imgur.com/FWpM6wH.png"
+            srcset="https://i.imgur.com/FWpM6wH.png, https://i.imgur.com/FWpM6wH.png 1.5x, https://i.imgur.com/FWpM6wH.png 2x"
+            sizes="auto"
+            alt="https://i.imgur.com/FWpM6wH.png">
+    </a></figure></li>
+<li>Each layer has its own set of <strong>protocols</strong>
+<ul>
+<li>To support protocols, messages are sent with a <strong>header</strong></li>
+</ul>
+</li>
+<li>Each layer adds its own header to the top of the message provided from the layer directly above.</li>
+<li>When the <em>message reaches the lowest layer from the top</em>, it now has multiple headers, starting with the header for the lowest layer first.</li>
+<li><em>At destination, starting at the lowest layer</em>, the message moves up the protocol stack to higher layers. Each layer removes its header and provides the remaining content to the layer directly above. When the message reaches the highest layer, all headers have been processed, and the recipient sees the regular human-readable text from before.</li>
+</ul>
+</li>
+<li>Layer 2 (link layer) uses 48-bit (6-byte) <strong>MAC addresses</strong> to uniquely identify each machine on the LAN.
+<ul>
+<li>written as 6 pairs of hex numbers</li>
+<li>the broadcast address of <code>ff:ff:ff:ff:ff:ff</code></li>
+<li>CSMA/CD protocol - carrier sense multiple access collision detection</li>
+</ul>
+</li>
+<li>Layer 3 (IP layer) uses 32-bit (4-byte) <strong>IP addresses</strong>
+<ul>
+<li>IPv6, uses 128-bit IP addresses, which are written as 8 2-byte hex values separated by colons, such as <code>cafe:f00d:d00d:1401:2414:1248:1281:8712</code></li>
+</ul>
+</li>
+<li>higher layers (transport layer) assign each process on a machine a unique 16-bit <strong>port number</strong>
+<ul>
+<li>web servers HTTP requests - port 80</li>
+<li>HTTPS - port 443.</li>
+<li>Ports below 1024 - &ldquo;reserved&rdquo;</li>
+</ul>
+</li>
+<li>At the lower layers, we call individual messages <strong>packets</strong>. Packets are usually limited to a fixed length.</li>
+<li>The IP (Internet Protocol) at layer 3 only guarantees <em>best-effort delivery</em>, and does not handle any errors. Instead, we rely on higher layers for correctness and security.</li>
+<li>Adversaries
+<ul>
+<li><strong>Off-path Adversary:</strong> The off-path adversary cannot read or modify any messages over the connection.</li>
+<li><strong>On-path Adversary:</strong> The on-path adversary can read, but not modify messages.</li>
+<li><strong>In-path Adversary:</strong> The in-path (man-in-the-middle) adversary has all the powers of the on-path adversary and can additionally modify and block messages sent by either party.</li>
+</ul>
+</li>
+</ul>
+<h3 id="arp" class="headerLink">
+    <a href="#arp" class="header-mark"></a>ARP</h3><ul>
+<li><strong>Layer</strong>: Link (2)</li>
+<li><strong>Purpose</strong>: Translate IP addresses to MAC addresses</li>
+<li><strong>Vulnerability</strong>: On-path attackers can see requests and send spoofed malicious responses</li>
+<li><strong>Defense</strong>: Switches, <code>arpwatch</code></li>
+<li><strong>ARP</strong>, the <strong>Address Resolution Protocol</strong>, translates Layer 3 IP addresses into Layer 2 MAC addresses. ARP replies are always cached</li>
+<li>three steps:
+<ol>
+<li>Alice would broadcast to everyone else on the LAN: &ldquo;What is the MAC address of <code>1.1.1.1</code>?&rdquo;</li>
+<li>Bob responds by sending a message only to Alice: &ldquo;My IP is <code>1.1.1.1</code> and my MAC address is <code>ca:fe:f0:0d:be:ef</code>.&rdquo; Everyone else does nothing.</li>
+<li>Alice caches the IP address to MAC address mapping for Bob.</li>
+</ol>
+</li>
+<li><strong>ARP Spoofing</strong>:
+<ul>
+<li>no way to verify that the reply in step 2 is actually from Bob</li>
+<li>Mallory is able to create a spoofed reply and send it to Alice before Bob can send his legitimate reply</li>
+<li>Defense:
+<ul>
+<li><code>arpwatch</code> - tracks the IP address to MAC address pairings across the LAN and makes sure nothing suspicious happens.</li>
+<li>Switches: VLAN</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="wpa" class="headerLink">
+    <a href="#wpa" class="header-mark"></a>WPA</h3><ul>
+<li><strong>WPA2-PSK (WiFi Protected Access: Pre-Shared Key)</strong> is a protocol that enables secure communications over a WiFi network by encrypting messages with cryptography.</li>
+<li><strong>Layer</strong>: Link (2)</li>
+<li><strong>Purpose</strong>: Communicate securely in a wireless local network</li>
+<li><strong>Vulnerability</strong>: On-path attackers can learn the encryption keys from the handshake and decrypt messages (includes brute-forcing the password if they don’t know it already)</li>
+<li><strong>Defense</strong>: WPA2-Enterprise
+<ul>
+<li>WPA2-Enterprise gives authorized users a unique username and password</li>
+<li>the authentication server presents both the client and the access point with a random <strong>PMK (Pairwise Master Key)</strong> to use instead of the PSK</li>
+</ul>
+</li>
+<li><figure><a class="lightgallery" href="https://textbook.cs161.org/assets/images/network/wpa/wpa2.png" title="https://textbook.cs161.org/assets/images/network/wpa/wpa2.png" data-thumbnail="https://textbook.cs161.org/assets/images/network/wpa/wpa2.png">
+        <img
+            
+            loading="lazy"
+            src="https://textbook.cs161.org/assets/images/network/wpa/wpa2.png"
+            srcset="https://textbook.cs161.org/assets/images/network/wpa/wpa2.png, https://textbook.cs161.org/assets/images/network/wpa/wpa2.png 1.5x, https://textbook.cs161.org/assets/images/network/wpa/wpa2.png 2x"
+            sizes="auto"
+            alt="https://textbook.cs161.org/assets/images/network/wpa/wpa2.png">
+    </a></figure></li>
+<li>all further communication between the client and the access point is encrypted with the <strong>PTK</strong></li>
+<li>The GTK is used for messages broadcast to the entire network (i.e. sent to the broadcast MAC address, <code>ff:ff:ff:ff:ff:ff</code>). The GTK is the same for everyone on the network, so everyone can encrypt/send and decrypt/receive broadcast messages.</li>
+<li>In practice, the handshake is <strong>optimized into a 4-way handshake</strong>, requiring only 4 messages to be exchanged between the client and the access point.</li>
+</ul>
+<h3 id="dhcp" class="headerLink">
+    <a href="#dhcp" class="header-mark"></a>DHCP</h3><ul>
+<li><strong>DHCP</strong> (<strong>Dynamic Host Configuration Protocol</strong>) is responsible for setting up configurations when a computer first joins a local network</li>
+<li>Steps:
+<ol>
+<li><strong>Client Discover</strong>: The client broadcasts a request for a configuration.</li>
+<li><strong>Server Offer</strong>: Any server able to offer IP addresses responds with some configuration settings. (In practice, usually only one server replies here.)</li>
+<li><strong>Client Request</strong>: The client broadcasts which configuration it has chosen.</li>
+<li><strong>Server Acknowledge</strong>: The chosen server confirms that its configuration has been chosen.</li>
+</ol>
+</li>
+<li><strong>Vulnerability</strong>: On-path attackers can see requests and send spoofed malicious responses</li>
+<li><strong>Defense</strong>: Accept as a fact of life and rely on higher layers</li>
+</ul>
+<h3 id="bgp" class="headerLink">
+    <a href="#bgp" class="header-mark"></a>BGP</h3><ul>
+<li><strong>Layer</strong>: 3 (inter-network)</li>
+<li><strong>Purpose</strong>: Send messages globally by connecting lots of local networks</li>
+<li><strong>Vulnerability</strong>: Malicious local networks can read messages in intermediate transit and forward them to the wrong place</li>
+<li><strong>Defense</strong>: Accept as a fact of life and rely on higher layers</li>
+</ul>
+<h3 id="tcp-and-udp" class="headerLink">
+    <a href="#tcp-and-udp" class="header-mark"></a>TCP and UDP</h3><ul>
+<li>The UDP and TCP header contains 16-bit source and destination port numbers to support communication between processes. The header also contains a checksum (non-cryptographic) to detect corrupted packets. Both <em>protocols are stateless</em>.</li>
+<li>TCP connection is identified by a 5-tuple of <code>(Client IP Address, Client Port, Server IP Address, Server Port, Protocol=TCP)</code>.
+<ul>
+<li><strong>No Confidentiality or Integrity</strong> by itself</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Sequence number (SYN)</th>
+<th style="text-align:left">Acknowldgement number (ACK)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">32 bit</td>
+<td style="text-align:left">32 bit</td>
+</tr>
+<tr>
+<td style="text-align:left">index of the first byte sent</td>
+<td style="text-align:left">index of the last byte received, plus 1. Ex: in packets from the client to the server, the ACK number is the next unsent byte in the server-to-client stream, and in packets from the server to the client, the ACK number is the next unsent byte in the client-to-server stream</td>
+</tr>
+<tr>
+<td style="text-align:left">reconstruct the message in the correct order</td>
+<td style="text-align:left">after a timeout period, the sender will re-send that packet</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Each TCP packet can contain both data and an acknowledgment that a previous packet was received</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>To end a connection, one side sends a FIN (a packet with the FIN flag set), and the other side replies with a FIN-ACK.</li>
+<li>Side that sent the FIN will not send any more data, but can continue accepting data.</li>
+<li>RST packet
+<ul>
+<li>unilateral abortion</li>
+<li>no more packets accepted or sent</li>
+<li>no acknowledgment</li>
+</ul>
+</li>
+<li><strong>Attacks</strong>
+<ul>
+<li>RST injection: abruptly end connection</li>
+<li>Different network attackers attack differently
+<ul>
+<li>Off path - needs to guess initial sequence number</li>
+<li>On path - needs to race an own packet against sender to receiver</li>
+<li>In path - can block, modify, do anything without racing</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="tls" class="headerLink">
+    <a href="#tls" class="header-mark"></a>TLS</h3><ul>
+<li><strong>TLS</strong> (<strong>Transport Layer Security</strong>) is a protocol that provides an end-to-end encrypted communication channel. (SSL - old version)</li>
+<li>End-to-end encryption - no person other than sender and receiver can read or modify data.</li>
+<li><strong>layer 6.5</strong> protocol</li>
+<li>Uses the underlying TCP.</li>
+<li>Client sends $R_B$ and a list of encryption protocols it supports.</li>
+<li>Server responds with $R_S$ and the certificate signed by CA</li>
+<li>Next is to generate a <strong>premature secret (PS)</strong>
+<ul>
+<li>generate random and encrypt with RSA</li>
+<li>Or, use Diffie Hellman</li>
+</ul>
+</li>
+<li>Generating the PS with DHE and ECDHE (elliptic curve DHE) has a substantial advantage over RSA key exchange, because it provides <strong>forward secrecy</strong>
+<ul>
+<li>Suppose an attacker records lots of RSA-based TLS communications, and some time in the future manages to steal the server’s private key. Now the attacker can decrypt PS values sent in old connections, which violates the security of those old TLS connections.</li>
+</ul>
+</li>
+<li>Use the PS and the random values $R_B$ and $R_S$ to derive a set of four shared symmetric keys: an <em>encryption key $C_B$ and an integrity key $I_B$ for the client, and an encryption key $C_S$ and an integrity key $I_S$ for the server</em>.</li>
+<li>client and server exchange and verify MACs over all messages sent so far
+<ul>
+<li>$I_B$ and $I_S$ are known to both the client and server so that they can verify.</li>
+</ul>
+</li>
+<li>Security against replay attacks:
+<ul>
+<li>For a connection: due to randomly generated $R_B$ and $R_S$.</li>
+<li>For the same connection: counter or timestamp so that an attacker cannot record a TLS message and send it again within the same connection.</li>
+</ul>
+</li>
+</ul>
+<h3 id="dns" class="headerLink">
+    <a href="#dns" class="header-mark"></a>DNS</h3><ul>
+<li>A DNS query for <code>eecs.berkeley.edu</code> <figure><a class="lightgallery" href="https://textbook.cs161.org/assets/images/network/dns/dnsquery.png" title="https://textbook.cs161.org/assets/images/network/dns/dnsquery.png" data-thumbnail="https://textbook.cs161.org/assets/images/network/dns/dnsquery.png">
+        <img
+            
+            loading="lazy"
+            src="https://textbook.cs161.org/assets/images/network/dns/dnsquery.png"
+            srcset="https://textbook.cs161.org/assets/images/network/dns/dnsquery.png, https://textbook.cs161.org/assets/images/network/dns/dnsquery.png 1.5x, https://textbook.cs161.org/assets/images/network/dns/dnsquery.png 2x"
+            sizes="auto"
+            alt="https://textbook.cs161.org/assets/images/network/dns/dnsquery.png">
+    </a></figure>
+<ul>
+<li><em>uses UDP</em></li>
+<li>13 root servers</li>
+</ul>
+</li>
+<li>Each <strong>name server</strong> is only responsible for storing information about their children, except for the name servers at the bottom of the tree, which are responsible for storing the actual mappings from domain names to IP addresses.</li>
+<li>A <strong>DNS Recursive Resolver</strong> provided by your Internet service provider (ISP), which sends the queries, processes the responses, and maintains an internal cache of records. When performing a lookup, the <strong>DNS Stub Resolver</strong> on your computer sends a query to the recursive resolver, lets it do all the work, and receives the response.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>16 bits</th>
+<th>16 bits</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Identification (used to match requests to responses)</td>
+<td>Flags (<code>NOERROR</code>, <code>NXDOMAIN</code>)</td>
+</tr>
+<tr>
+<td># Questions (=1)</td>
+<td># Answer RRs (Resource records)</td>
+</tr>
+<tr>
+<td># Authority RRs</td>
+<td># Additional RRs</td>
+</tr>
+<tr>
+<td>Questions (variable # of RRs)</td>
+<td></td>
+</tr>
+<tr>
+<td>Answers (variable # of RRs)</td>
+<td></td>
+</tr>
+<tr>
+<td>Authority (variable # of RRs)</td>
+<td></td>
+</tr>
+<tr>
+<td>Additional info (variable # of RRs)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>A DNS record key is formally defined as a 3-tuple <code>&lt;Name, Class, Type&gt;</code></li>
+<li>A DNS record value contains <code>&lt;TTL, Value&gt;</code>
+<ul>
+<li><strong>A type records</strong> map domains to IP addresses (<code>AAAA</code> for IPv6)</li>
+<li><strong>NS type records</strong> map zones to domains</li>
+<li>number of additional records is always 1 more than the actual number of additional records that appear in the response (extra record corresponds to the <code>OPT</code> pseudosection)</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ dig +norecurse eecs.berkeley.edu @128.32.136.3
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>;; Got answer:
+</span></span><span style="display:flex;"><span>;; -&gt;&gt;HEADER<span style="color:#e6db74">&lt;&lt;- opco</span>de: QUERY, status: NOERROR, id: <span style="color:#ae81ff">52788</span>
+</span></span><span style="display:flex;"><span>;; flags: qr aa; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>;; QUESTION SECTION:
+</span></span><span style="display:flex;"><span>;eecs.berkeley.edu.         IN   A
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>;; ANSWER SECTION:
+</span></span><span style="display:flex;"><span>eecs.berkeley.edu.  <span style="color:#ae81ff">86400</span>   IN   A   23.185.0.1
+</span></span></code></pre></div><ul>
+<li>With <strong>bailiwick checking</strong>, a name server is only allowed to provide records in its zone. (Ex. a <code>.com</code> NS can&rsquo;t provide for <code>.edu</code>)</li>
+<li>The Kaminsky attack relies on querying for nonexistent domains.
+<ul>
+<li>include malicious additional records in the fake DNS response and make the victim query nonexistent domains.</li>
+<li>There is no way to completely eliminate the Kaminsky attack in regular DNS, although modern DNS protocols add <strong>UDP source port randomization</strong> to make it much harder. (This doesn&rsquo;t stop On path attackers)</li>
+</ul>
+</li>
+</ul>
+<h3 id="dnssec" class="headerLink">
+    <a href="#dnssec" class="header-mark"></a>DNSSEC</h3><ul>
+<li><strong>DNSSEC</strong> is an extension to regular DNS that provides <em>integrity</em> and <em>authentication</em> on all DNS messages sent</li>
+<li>Issue: What if name server is malicious?
+<ul>
+<li>Have a trust anchor: The root servers</li>
+<li>Each name server will sign the public key of all its trusted children name servers, starting from the root</li>
+</ul>
+</li>
+<li>The <strong><code>DNSKEY</code> type record</strong> encodes a public key.</li>
+<li>The <strong><code>RRSIG</code> type record</strong> is a signature on a set of multiple other records in the message, all of the same type.</li>
+<li>The <strong><code>DS</code> (Delegated Signer) type record</strong> is a hash of the signer’s name and a child’s public key.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">KSK (Key Signing Key)</th>
+<th style="text-align:left">ZSK (Zone Signing Key)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">used to sign ZSK</td>
+<td style="text-align:left">used to sign everything else</td>
+</tr>
+<tr>
+<td style="text-align:left">endorsed by the parent</td>
+<td style="text-align:left">resolver verifies by using public ZSK</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>DNSSEC sign records <em>offline</em>–records</li>
+<li>In case of nonexistent records, name servers pre-compute signatures on <em>ranges</em> of nonexistent domains.
+<ul>
+<li><strong>NSEC record</strong> - no domains exist between domains.
+<ul>
+<li><code>NSEC3</code>, <code>NSEC5</code> - newer versions, uses hash instead of domain names</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="dos" class="headerLink">
+    <a href="#dos" class="header-mark"></a>DoS</h3><ul>
+<li>Any attack that is designed to cause a machine or a piece of software to be unavailable and unable to perform its basic functionality is known as a <strong>denial of service (DoS) attack</strong>.</li>
+<li>Attackers can generate a unique source IP address for every packet sent, thus preventing the target from successfully identifying and blocking the attacker.</li>
+<li>Application level
+<ul>
+<li>exhausting the RAM by having continuous calls to <code>malloc</code></li>
+<li>exhausting the processing threads by having continuous calls to <code>fork</code></li>
+<li>exhausting the disk I/O operations</li>
+<li><em>Prevention</em>: Identification, Isolation, Quotas (proof-of-work : like a <em>CAPTCHA</em>)</li>
+</ul>
+</li>
+<li>In a <strong>SYN flooding attack</strong>
+<ul>
+<li>send a large number of SYN packets to the server</li>
+<li>ignore the SYN/ACK replies</li>
+<li>never send the ACK response</li>
+<li>mitigation: <em>SYN cookies</em> - Only when the handshake is complete will the server allocate state for the connection after checking the cookie against the secret.</li>
+</ul>
+</li>
+<li>Often, attackers carry out <em>DDoS attacks by using botnets</em>, a series of large networks of machines that have been compromised and are controllable remotely.
+<ul>
+<li><em>no way to completely eliminate</em></li>
+</ul>
+</li>
+</ul>
+<h3 id="firewall" class="headerLink">
+    <a href="#firewall" class="header-mark"></a>Firewall</h3><ul>
+<li><em>Turn off every unnecessary network service</em></li>
+<li>Firewalls reduce risk by blocking network outsiders from having unwanted access to all the network services by acting as a choke point between the internet (outsiders) and your internal network.</li>
+<li>An <em>inbound connection</em> is one that is <em>initiated by external users</em> and attempts to connect to services that are running on internal machines.</li>
+<li>an <em>outbound connection</em> is one which is <em>initiated by an internal user</em>, and attempts to initiate contact with external services.</li>
+<li>Security policy: A kind of access control policy
+<ul>
+<li>Subjects - computers</li>
+<li>Objects - network services</li>
+<li>Policy - whether that subject has permission to access that object</li>
+<li>Two ways
+<ul>
+<li><em>Default-allow or blacklist</em>: By default, every network service is permitted unless it has been specifically listed as denied.</li>
+<li><em>Default-deny or whitelist</em>: By default, every network service is denied to external users, unless it has been specifically listed as allowed. <strong>Much safer bet</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>we can identify each network service with a triplet $(m,r,p)$
+<ul>
+<li>$m$ - IP address of a machine</li>
+<li>$r$ - protocol identifier (i.e. TCP or UDP)</li>
+<li>$p$ - port number</li>
+<li>An allow list would include triplets. Ex. <code>(1.2.3.4, TCP, 80)</code></li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>allow tcp ∗:∗ → 1.2.3.4:25
+</span></span><span style="display:flex;"><span>drop ∗ ∗:∗ → ∗:∗
+</span></span></code></pre></div><ul>
+<li>A stateful packet filter maintains state, meaning that it keeps track of all open connections that have been established.</li>
+<li><em>Application-layer firewalls</em> restrict traffic according to the content of the data fields. These types of firewalls have certain <em>security advantages</em> since they can enforce <em>more restrictive security policies</em> and can transform data on the fly.
+<ul>
+<li>Ex. Proxy servers. all traffic goes through them.</li>
+</ul>
+</li>
+<li>Firewalls also embody <em>orthogonal security</em> meaning that it can be deployed to protect pre-existing legacy systems much more easily than other security mechanisms that have to be integrated with the rest of the system.</li>
+</ul>
+<h3 id="ip-security" class="headerLink">
+    <a href="#ip-security" class="header-mark"></a>IP security</h3><ul>
+<li>IP spoofing countermeasures
+<ul>
+<li>TCP handles it with sequence numbers.</li>
+<li>Ingress filtering - block outside network packets having inside network address.</li>
+<li>Egress filtering - block outgoing packets with non matching destination network addresses.</li>
+</ul>
+</li>
+<li><strong>ICMP</strong> - internet control message protocol
+<ul>
+<li>helps IP in error reporting</li>
+<li>simple queries (<code>ping</code>)</li>
+</ul>
+</li>
+<li>IPSec
+<ul>
+<li>layer 3.5</li>
+<li>CIA in this layer.</li>
+<li>modifications in OS</li>
+<li>connection oriented i.e has state (contrary to IP)</li>
+</ul>
+</li>
+<li>IP packet can be changed in a MITM attack as routers have access to the packet.</li>
+<li>If IP security is handled, then all layers above are secure.</li>
+<li>use cases - VPNs</li>
+<li>Send packets by Symmetric key encryption.</li>
+<li>SA (security association) = SPI + Destination IP + IPSec (ESP pr AH)</li>
+<li>SPD (security policy database) - used to map outgoing packet to a particular SA</li>
+<li><strong>ESP</strong>
+<ul>
+<li>Provides source authentication, data integrity and confidentiality</li>
+<li><em>transport mode</em> - end to end hosts <figure><a class="lightgallery" href="https://i.imgur.com/Hw5ptcz.png" title="https://i.imgur.com/Hw5ptcz.png" data-thumbnail="https://i.imgur.com/Hw5ptcz.png">
+        <img
+            
+            loading="lazy"
+            src="https://i.imgur.com/Hw5ptcz.png"
+            srcset="https://i.imgur.com/Hw5ptcz.png, https://i.imgur.com/Hw5ptcz.png 1.5x, https://i.imgur.com/Hw5ptcz.png 2x"
+            sizes="auto"
+            alt="https://i.imgur.com/Hw5ptcz.png">
+    </a></figure>
+<ul>
+<li>original IP header is visible</li>
+</ul>
+</li>
+<li><em>tunnel mode</em> (uses gateway) <figure><a class="lightgallery" href="https://i.imgur.com/VC56oqt.png" title="https://i.imgur.com/VC56oqt.png" data-thumbnail="https://i.imgur.com/VC56oqt.png">
+        <img
+            
+            loading="lazy"
+            src="https://i.imgur.com/VC56oqt.png"
+            srcset="https://i.imgur.com/VC56oqt.png, https://i.imgur.com/VC56oqt.png 1.5x, https://i.imgur.com/VC56oqt.png 2x"
+            sizes="auto"
+            alt="https://i.imgur.com/VC56oqt.png">
+    </a></figure>
+<ul>
+<li>default IPSec mode</li>
+<li>protects the payload and IP header of original packet</li>
+<li>authentication is applied to data in ESP header and data in payload.</li>
+<li>process
+<ul>
+<li>verify sequence number, verify integrity and decrypt</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>IKE (internet key exchange)</strong>
+<ul>
+<li>for establishing a shared secret for IPSec (SA)</li>
+<li>bidirectional, contrary to the unidirectional SA</li>
+</ul>
+</li>
+</ul></div>
+
+        <div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2023-05-24</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share"></div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/notes/">notes</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/getting-started-with-cp/getting_started_with_cp/" class="prev" rel="prev" title="Getting started with competitive programming"><i class="fas fa-angle-left fa-fw"></i>Getting started with competitive programming</a></div>
+</div>
+</article></div>
+        </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">
+                    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.112.3">Hugo</a>&nbsp;|&nbsp;Theme - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreferrer" title="DoIt 0.3.0"><i class="far fa-edit fa-fw"></i> DoIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank" rel="noopener noreferrer"></a></span></div>
+            <div class="footer-line"></div>
+            <div class="footer-line">
+            </div>
+        </div></footer></div>
+
+    <div id="fixed-buttons"><a href="#back-to-top" id="back-to-top-button" class="fixed-button" title="Back to Top">
+            <i class="fas fa-arrow-up fa-fw"></i>
+        </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+            <i class="fas fa-comment fa-fw"></i>
+        </a>
+    </div><div class="assets"><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{}};</script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/js/theme.min.js" defer></script></div>
+</body>
+
+</html>
