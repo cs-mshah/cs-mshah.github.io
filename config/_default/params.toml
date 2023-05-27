@@ -19,7 +19,7 @@ license = '<a rel="license external nofollow noopener noreffer" href="https://cr
 # [Experimental] Bundle js
 bundle = false
 # [Experimental] cache remote images, more info: https://github.com/HEIGE-PCloud/DoIt/pull/860#issue-1574342372
-cacheRemoteImages = false
+cacheRemoteImages = true
 # Header config
 [header]
   # desktop header mode ("fixed", "normal", "auto")
@@ -56,7 +56,7 @@ cacheRemoteImages = false
   # whether to show the author
   author = true
   # site creation time
-  since = 2019
+  since = 2021
   # ICP info only in China (HTML format is supported)
   icp = ""
   # license info (HTML format is supported)
@@ -72,7 +72,7 @@ cacheRemoteImages = false
   rss = 10
   # recently updated posts settings
   [section.recentlyUpdated]
-    enable = true
+    enable = false
     rss = true
     days = 30
     maxCount = 10
@@ -117,7 +117,7 @@ cacheRemoteImages = false
   # https://github.com/user/repo/issues/new?title=[bug]%20{title}&body=|Field|Value|%0A|-|-|%0A|Title|{title}|%0A|Url|{url}|%0A|Filename|https://github.com/user/repo/blob/main/{path}|"
   # https://gitlab.com/user/repo/-/issues/new?issue[title]=[bug]%20{title}&issue[description]=|Field|Value|%0A|-|-|%0A|Title|{title}|%0A|Url|{url}|%0A|Filename|https://gitlab.com/user/repo/-/edit/main/{path}|
   # whether to show the full text content in RSS
-  rssFullText = false
+  rssFullText = true
   # whether to enable series navigation
   seriesNavigation = true
   # Display a message at the beginning of an article to warn the reader that its content might be outdated.

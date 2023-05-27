@@ -67,11 +67,27 @@
   url = "/about/"
   title = ""
   weight = 8
-# [[main]]
-#   identifier = "github"
-#   pre = "<i class='fab fa-github fa-fw'></i>"
-#   post = ""
-#   name = ""
-#   url = "https://github.com/HEIGE-PCloud/DoIt"
-#   title = "GitHub"
-#   weight = 9
+[[main]]
+  identifier = "newsletter"
+  pre = "<i class='fa fa-envelope' aria-hidden='true'></i>"
+  post = ""
+  name = "Newsletter"
+  url = "https://tinyletter.com/cs-mshah"
+  title = ""
+  weight = 9
+[[main]]
+  identifier = "rss"
+  pre = "<i class='fa fa-rss' aria-hidden='true'></i>"
+  post = ""
+  name = ""
+  url = "/index.xml"
+  title = ""
+  weight = 10
+[[main]]
+  identifier = "github"
+  pre = "<i class='fab fa-github fa-fw'></i>"
+  post = ""
+  name = ""
+  url = "https://github.com/cs-mshah"
+  title = "GitHub"
+  weight = 11
