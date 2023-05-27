@@ -117,7 +117,7 @@ cacheRemoteImages = true
   # https://github.com/user/repo/issues/new?title=[bug]%20{title}&body=|Field|Value|%0A|-|-|%0A|Title|{title}|%0A|Url|{url}|%0A|Filename|https://github.com/user/repo/blob/main/{path}|"
   # https://gitlab.com/user/repo/-/issues/new?issue[title]=[bug]%20{title}&issue[description]=|Field|Value|%0A|-|-|%0A|Title|{title}|%0A|Url|{url}|%0A|Filename|https://gitlab.com/user/repo/-/edit/main/{path}|
   # whether to show the full text content in RSS
-  rssFullText = true
+  rssFullText = false
   # whether to enable series navigation
   seriesNavigation = true
   # Display a message at the beginning of an article to warn the reader that its content might be outdated.
