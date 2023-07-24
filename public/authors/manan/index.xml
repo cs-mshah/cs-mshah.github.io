@@ -4,7 +4,15 @@
         <link>https://cs-mshah.github.io/authors/manan/</link>
         <description>Manan - Author - Manan&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>mt-shah@hotmail.com (Manan)</managingEditor>
-            <webMaster>mt-shah@hotmail.com (Manan)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 24 May 2023 18:57:20 &#43;0530</lastBuildDate><atom:link href="https://cs-mshah.github.io/authors/manan/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>mt-shah@hotmail.com (Manan)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 23 Jul 2023 22:21:30 &#43;0530</lastBuildDate><atom:link href="https://cs-mshah.github.io/authors/manan/" rel="self" type="application/rss+xml" /><item>
+    <title>Winning the NCVPRIPG23 Challenge on Writer Verification</title>
+    <link>https://cs-mshah.github.io/ncvpripg23_writer_verification/</link>
+    <pubDate>Sun, 23 Jul 2023 22:21:30 &#43;0530</pubDate><author>
+                        <name>Manan Shah</name><uri>https://github.com/cs-mshah</uri></author><guid>https://cs-mshah.github.io/ncvpripg23_writer_verification/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/ncvpripg23_wv.png" referrerpolicy="no-referrer">
+            </div>This post outlines the approach I used for NCVPRIPG23's challenge on writer verification]]></description>
+</item><item>
     <title>Notes from CS161: Computer Security</title>
     <link>https://cs-mshah.github.io/cs161_computer_security_notes/</link>
     <pubDate>Wed, 24 May 2023 18:57:20 &#43;0530</pubDate><author>

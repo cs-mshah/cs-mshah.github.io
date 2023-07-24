@@ -11,7 +11,7 @@ fingerprint = ""
 # date format
 dateFormat = "02-01-2006"
 # website images for Open Graph and Twitter Cards
-images = ["/images/avatar.jpg"]
+images = ["android-chrome-192x192.png"]
 # enable PWA
 enablePWA = false
 # license information
@@ -140,7 +140,7 @@ cacheRemoteImages = true
     # whether to show the copy button of the code block
     copy = true
     # the maximum number of lines of displayed code by default
-    maxShownLines = 10
+    maxShownLines = 20
   # Table config
   [page.table]
     # whether to enable sorting in the tables
@@ -387,7 +387,7 @@ cacheRemoteImages = true
     # Publisher info
     [page.seo.publisher]
       name = "Manan"
-      logoUrl = "/images/avatar.jpg"
+      logoUrl = "android-chrome-192x192.png"
   # Related content config
   [page.related]
     enable = true
@@ -424,7 +424,7 @@ cacheRemoteImages = true
 # Site SEO config
 [seo]
   # image URL
-  image = "/images/Apple-Devices-Preview.png"
+  image = "android-chrome-192x192.png"
   # thumbnail URL
   thumbnailUrl = "/images/screenshot.png"
 
