@@ -52,6 +52,7 @@ The overall architecture consists of two things
 - The encoder part (backbone) to encode images.
 - The loss function to train the model on.
 
+{{< image src="/images/wv_architecture.png" caption="architecture" linked="false" >}}
 ### The Image Encoder
 The encoder is a simple `ResNet50` with an output dimension of `64` (instead of the default 1000). For getting a good backbone, I thought of using [DINO](https://github.com/facebookresearch/dino) pretrained weights on ImageNet. Several papers have shown this backbone to be strong in downstream metric learning tasks. I just started with a `ResNet50`, but a `ViT` could've been tried too, along with the more recent [DINOv2](https://github.com/facebookresearch/dinov2) weights. I used a generic classifier from the [Transfer Learning Library](https://github.com/thuml/Transfer-Learning-Library/blob/master/tllib/modules/classifier.py), which can be configured to have different backbones, bottlenecks and heads. Another benefit is that the *learning rates* of different layers *can also be configured*.
 
@@ -105,15 +106,15 @@ The entire training logs of all experiments can be found at: [wandb](https://wan
 ## Results and Conclusions
 Here is an overview of some of the ablations that were conducted.
 
-|AUC(Val) |Batch Size|Miner|Sampler|Epochs|
+|AUC (Val)|Batch Size|Miner|Sampler|Epochs|
 |:--|:--|:--|:--|:--|
-|0.7217|32|semihard|-|20|
-|0.9642|128|semihard|-|80|
+|0.7217 |32|semihard|-|20|
+|0.9642 |128|semihard|-|80|
 |0.9782|128|all|-|80|
 |0.9775 |128|all|MPerClass|80|
 
 - It is clear from the table that one needs a larger batch size (which is obvious in metric learning tasks).
-- `all` mining strategy generates more triplets, and this strategy works slightly better than the other options.
+- `all` mining strategy generates more triplets, and this strategy works slightly better than the other options. `hard` mining resulted in the loss to collapse and ultimately halt training, due to a decrease in the triplets mined after a few epochs.
 - An `MPerClassSampler` greatly improves training time.
 - The AUC of the best model on the `val` set turned out to be **0.9775** and that of the test set turned out to be **0.97588**
 
