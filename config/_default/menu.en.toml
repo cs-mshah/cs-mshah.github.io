@@ -72,7 +72,7 @@
   pre = "<i class='fa fa-envelope' aria-hidden='true'></i>"
   post = ""
   name = "Newsletter"
-  url = "https://tinyletter.com/cs-mshah"
+  url = "https://mailchi.mp/26a81bdf8647/personal-blog-sign-up"
   title = ""
   weight = 9
 [[main]]

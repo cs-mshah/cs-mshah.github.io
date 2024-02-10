@@ -1,13 +1,16 @@
 ---
-title: "Winning the NCVPRIPG23 Challenge on Writer Verification"
+title: Winning the NCVPRIPG23 Challenge on Writer Verification
 draft: false
 date: 2023-07-23T22:21:30+05:30
 lastmod: 2023-07-25T22:21:30+05:30
-authors: [Manan]
-description: "This post outlines the approach I used for NCVPRIPG23's challenge on writer verification"
-featuredImage: ""
-featuredImagePreview: "/images/ncvpripg23_wv.png"
-tags: [CV]
+authors:
+  - Manan
+description: This post outlines the approach I used for NCVPRIPG23's challenge
+  on writer verification
+featuredImage: 
+featuredImagePreview: /images/ncvpripg23_wv.png
+tags:
+  - CV
 categories: []
 series: []
 ---
@@ -122,7 +125,7 @@ Here is an overview of some of the ablations that were conducted.
 |0.7217 |32|semihard|-|20|
 |0.9642 |128|semihard|-|80|
 |0.9782|128|all|-|80|
-|0.9775 |128|all|MPerClass|80|
+|0.9775 |128|all|MPerClass|10|
 
 - It is clear from the table that one needs a larger batch size (which is obvious in metric learning tasks).
 - `all` mining strategy generates more triplets, and this strategy works slightly better than the other options. `hard` mining resulted in the loss to collapse and ultimately halt training, due to a decrease in the triplets mined after a few epochs.

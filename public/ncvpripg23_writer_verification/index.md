@@ -111,7 +111,7 @@ Here is an overview of some of the ablations that were conducted.
 |0.7217 |32|semihard|-|20|
 |0.9642 |128|semihard|-|80|
 |0.9782|128|all|-|80|
-|0.9775 |128|all|MPerClass|80|
+|0.9775 |128|all|MPerClass|10|
 
 - It is clear from the table that one needs a larger batch size (which is obvious in metric learning tasks).
 - `all` mining strategy generates more triplets, and this strategy works slightly better than the other options. `hard` mining resulted in the loss to collapse and ultimately halt training, due to a decrease in the triplets mined after a few epochs.
