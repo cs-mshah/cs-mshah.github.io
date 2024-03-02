@@ -13,7 +13,8 @@
                         <name>Manan Shah</name><uri>https://github.com/cs-mshah</uri></author><guid>https://cs-mshah.github.io/ncvpripg23_writer_verification/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/ncvpripg23_wv.png" referrerpolicy="no-referrer">
-            </div>This post outlines the approach I used for NCVPRIPG23's challenge on writer verification]]></description>
+            </div>The ChallengeThe statement is simple. Given two images of handwritten texts, predict whether they&rsquo;ve been written by the same person or not. This challenge was a part of the 8th National Conference on Computer Vision, Pattern Recognition, Image Processing and Graphics. You can go and have a look at the above link for the details of the challenge and dataset (as of writing the dataset isn&rsquo;t public).
+Writer Verification Challenge You can also have a look at the project repository along with this blog.]]></description>
 </item><item>
     <title>Notes from CS161: Computer Security</title>
     <link>https://cs-mshah.github.io/cs161_computer_security_notes/</link>
@@ -21,12 +22,15 @@
                         <name>Manan Shah</name><uri>https://github.com/cs-mshah</uri></author><guid>https://cs-mshah.github.io/cs161_computer_security_notes/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/network-security.jpg" referrerpolicy="no-referrer">
-            </div>This contains my notes from the CS161: Computer Security course from UC Berkeley.]]></description>
+            </div>What this post is aboutCS161 | Computer Security is a good introductory course on computer security. It covers basics of Memory Safety, Cryptography, Web Security and Network Security. Their textbook was one of the reference books for an introductory computer security course that I had taken in college under Dr. Ravi Mittal.
+I just thought of posting some notes that I had made from the textbook while reading from some of the sections.]]></description>
 </item><item>
     <title>Getting started with competitive programming</title>
     <link>https://cs-mshah.github.io/getting_started_with_cp/</link>
     <pubDate>Sat, 04 Dec 2021 01:14:45 &#43;0530</pubDate><author>
                         <name>Manan Shah</name><uri>https://github.com/cs-mshah</uri></author><guid>https://cs-mshah.github.io/getting_started_with_cp/</guid>
-    <description><![CDATA[This post gives a basic setup for CP including setting up CP editor, cf tool, competitive companion, a debugging template and some other resources.]]></description>
+    <description><![CDATA[What this post is aboutThis post assumes that
+you are familiar with Codeforces and competitive programming you know the basics of a particular programming language (C++) This post is
+more about getting a good setup (according to me) setting up CP Editor, cf-tool and competitive companion some optimisations like pre-compiling headers about setting and using a debug template some resources to practice CP. Selecting the right editorThere are a few good choices for selecting an editor for CP.]]></description>
 </item></channel>
 </rss>

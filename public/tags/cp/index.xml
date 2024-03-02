@@ -9,6 +9,8 @@
     <link>https://cs-mshah.github.io/getting_started_with_cp/</link>
     <pubDate>Sat, 04 Dec 2021 01:14:45 &#43;0530</pubDate><author>
                         <name>Manan Shah</name><uri>https://github.com/cs-mshah</uri></author><guid>https://cs-mshah.github.io/getting_started_with_cp/</guid>
-    <description><![CDATA[This post gives a basic setup for CP including setting up CP editor, cf tool, competitive companion, a debugging template and some other resources.]]></description>
+    <description><![CDATA[What this post is aboutThis post assumes that
+you are familiar with Codeforces and competitive programming you know the basics of a particular programming language (C++) This post is
+more about getting a good setup (according to me) setting up CP Editor, cf-tool and competitive companion some optimisations like pre-compiling headers about setting and using a debug template some resources to practice CP. Selecting the right editorThere are a few good choices for selecting an editor for CP.]]></description>
 </item></channel>
 </rss>
