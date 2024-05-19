@@ -11,7 +11,6 @@
                         <name>Manan Shah</name><uri>https://github.com/cs-mshah</uri></author><guid>https://cs-mshah.github.io/ncvpripg23_writer_verification/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/ncvpripg23_wv.png" referrerpolicy="no-referrer">
-            </div>The ChallengeThe statement is simple. Given two images of handwritten texts, predict whether they&rsquo;ve been written by the same person or not. This challenge was a part of the 8th National Conference on Computer Vision, Pattern Recognition, Image Processing and Graphics. You can go and have a look at the above link for the details of the challenge and dataset (as of writing the dataset isn&rsquo;t public).
-Writer Verification Challenge You can also have a look at the project repository along with this blog.]]></description>
+            </div>This post outlines the approach I used for NCVPRIPG23's challenge on writer verification]]></description>
 </item></channel>
 </rss>

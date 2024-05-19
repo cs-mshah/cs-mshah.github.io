@@ -11,7 +11,6 @@
                         <name>Manan Shah</name><uri>https://github.com/cs-mshah</uri></author><guid>https://cs-mshah.github.io/cs161_computer_security_notes/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/network-security.jpg" referrerpolicy="no-referrer">
-            </div>What this post is aboutCS161 | Computer Security is a good introductory course on computer security. It covers basics of Memory Safety, Cryptography, Web Security and Network Security. Their textbook was one of the reference books for an introductory computer security course that I had taken in college under Dr. Ravi Mittal.
-I just thought of posting some notes that I had made from the textbook while reading from some of the sections.]]></description>
+            </div>This contains my notes from the CS161: Computer Security course from UC Berkeley.]]></description>
 </item></channel>
 </rss>

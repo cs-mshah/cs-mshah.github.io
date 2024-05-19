@@ -292,7 +292,8 @@
     {{- range (.Scratch.Get "this").commentScript -}}
         {{- partial "plugin/script.html" . -}}
     {{- end -}}
-    <script src="https://cdn.jsdelivr.net/gh/ncase/nutshell/nutshell.js">
+    <script src="https://cdn.jsdelivr.net/gh/ncase/nutshell/nutshell.js"> </script>
+    <script>
         Nutshell.setOptions({
             startOnLoad: true, // Start Nutshell on load? (default: true)
             lang: 'en', // Language (default: 'en', which is English)
