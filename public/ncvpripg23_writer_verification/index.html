@@ -273,14 +273,14 @@
     <a href="#the-image-encoder" class="header-mark"></a>The Image Encoder</h3><p>The encoder is a simple <code>ResNet50</code> with an output dimension of <code>64</code> (instead of the default 1000). For getting a good backbone, I thought of using <a href="https://github.com/facebookresearch/dino" target="_blank" rel="noopener noreferrer">DINO</a> pretrained weights on ImageNet. Several papers have shown this backbone to be strong in downstream metric learning tasks. I just started with a <code>ResNet50</code>, but a <code>ViT</code> could&rsquo;ve been tried too, along with the more recent <a href="https://github.com/facebookresearch/dinov2" target="_blank" rel="noopener noreferrer">DINOv2</a> weights. I used a generic classifier from the <a href="https://github.com/thuml/Transfer-Learning-Library/blob/master/tllib/modules/classifier.py" target="_blank" rel="noopener noreferrer">Transfer Learning Library</a>, which can be configured to have different backbones, bottlenecks and heads. Another benefit is that the <em>learning rates</em> of different layers <em>can also be configured</em>.</p>
 <h3 id="the-triplet-loss" class="headerLink">
     <a href="#the-triplet-loss" class="header-mark"></a>The Triplet Loss</h3><p>The triplet loss seemed to be one of the ideal choices to train the network on. The motivation comes from the following:</p>
-<figure><a class="lightgallery" href="/1*ADu4F-SoI-cLqyO0IqqBrQ_5766171837206140609.webp" title="/1*ADu4F-SoI-cLqyO0IqqBrQ_5766171837206140609.webp" data-thumbnail="/1*ADu4F-SoI-cLqyO0IqqBrQ_5766171837206140609.webp" data-sub-html="<h2>Triplet Loss - Advanced Intro</h2>">
+<figure><a class="lightgallery" href="/1*ADu4F-SoI-cLqyO0IqqBrQ_9874281950710073212.webp" title="/1*ADu4F-SoI-cLqyO0IqqBrQ_9874281950710073212.webp" data-thumbnail="/1*ADu4F-SoI-cLqyO0IqqBrQ_9874281950710073212.webp" data-sub-html="<h2>Triplet Loss - Advanced Intro</h2>">
         <img
             
             loading="lazy"
-            src="/1*ADu4F-SoI-cLqyO0IqqBrQ_5766171837206140609.webp"
-            srcset="/1*ADu4F-SoI-cLqyO0IqqBrQ_5766171837206140609.webp, /1*ADu4F-SoI-cLqyO0IqqBrQ_5766171837206140609.webp 1.5x, /1*ADu4F-SoI-cLqyO0IqqBrQ_5766171837206140609.webp 2x"
+            src="/1*ADu4F-SoI-cLqyO0IqqBrQ_9874281950710073212.webp"
+            srcset="/1*ADu4F-SoI-cLqyO0IqqBrQ_9874281950710073212.webp, /1*ADu4F-SoI-cLqyO0IqqBrQ_9874281950710073212.webp 1.5x, /1*ADu4F-SoI-cLqyO0IqqBrQ_9874281950710073212.webp 2x"
             sizes="auto"
-            alt="/1*ADu4F-SoI-cLqyO0IqqBrQ_5766171837206140609.webp" height="256"  width="828" >
+            alt="/1*ADu4F-SoI-cLqyO0IqqBrQ_9874281950710073212.webp" height="256"  width="828" >
     </a><figcaption class="image-caption"><a href="https://towardsdatascience.com/triplet-loss-advanced-intro-49a07b7d8905" target="_blank" rel="noopener noreferrer">Triplet Loss - Advanced Intro</a></figcaption>
     </figure>
 <p>The loss is defined by,</p>
@@ -336,59 +336,59 @@ The choice of hyperparameters in this case is purely based on some past experien
             <i class="icon fas fa-check-circle fa-fw"></i>Training plots of the best model<i class="details-icon fas fa-angle-right fa-fw"></i>
         </div>
         <div class="details-content">
-            <div class="admonition-content"><figure><a class="lightgallery" href="/6fEOyWh_11139380070564900249.png" title="/6fEOyWh_11139380070564900249.png" data-thumbnail="/6fEOyWh_11139380070564900249.png">
+            <div class="admonition-content"><figure><a class="lightgallery" href="/6fEOyWh_7690313627967815972.png" title="/6fEOyWh_7690313627967815972.png" data-thumbnail="/6fEOyWh_7690313627967815972.png">
         <img
             
             loading="lazy"
-            src="/6fEOyWh_11139380070564900249.png"
-            srcset="/6fEOyWh_11139380070564900249.png, /6fEOyWh_11139380070564900249.png 1.5x, /6fEOyWh_11139380070564900249.png 2x"
+            src="/6fEOyWh_7690313627967815972.png"
+            srcset="/6fEOyWh_7690313627967815972.png, /6fEOyWh_7690313627967815972.png 1.5x, /6fEOyWh_7690313627967815972.png 2x"
             sizes="auto"
-            alt="/6fEOyWh_11139380070564900249.png" height="364"  width="1065" >
+            alt="/6fEOyWh_7690313627967815972.png" height="364"  width="1065" >
     </a></figure></div>
         </div>
     </div>
 <h2 id="results-and-conclusions" class="headerLink">
     <a href="#results-and-conclusions" class="header-mark"></a>Results and Conclusions</h2><p>Here is an overview of some of the ablations that were conducted.</p>
 <table>
-<thead>
-<tr>
-<th style="text-align:left">AUC (Val)</th>
-<th style="text-align:left">Batch Size</th>
-<th style="text-align:left">Miner</th>
-<th style="text-align:left">Sampler</th>
-<th style="text-align:left">Epochs</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">0.7217</td>
-<td style="text-align:left">32</td>
-<td style="text-align:left">semihard</td>
-<td style="text-align:left">-</td>
-<td style="text-align:left">20</td>
-</tr>
-<tr>
-<td style="text-align:left">0.9642</td>
-<td style="text-align:left">128</td>
-<td style="text-align:left">semihard</td>
-<td style="text-align:left">-</td>
-<td style="text-align:left">80</td>
-</tr>
-<tr>
-<td style="text-align:left">0.9782</td>
-<td style="text-align:left">128</td>
-<td style="text-align:left">all</td>
-<td style="text-align:left">-</td>
-<td style="text-align:left">80</td>
-</tr>
-<tr>
-<td style="text-align:left">0.9775</td>
-<td style="text-align:left">128</td>
-<td style="text-align:left">all</td>
-<td style="text-align:left">MPerClass</td>
-<td style="text-align:left">10</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">AUC (Val)</th>
+          <th style="text-align: left">Batch Size</th>
+          <th style="text-align: left">Miner</th>
+          <th style="text-align: left">Sampler</th>
+          <th style="text-align: left">Epochs</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">0.7217</td>
+          <td style="text-align: left">32</td>
+          <td style="text-align: left">semihard</td>
+          <td style="text-align: left">-</td>
+          <td style="text-align: left">20</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">0.9642</td>
+          <td style="text-align: left">128</td>
+          <td style="text-align: left">semihard</td>
+          <td style="text-align: left">-</td>
+          <td style="text-align: left">80</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">0.9782</td>
+          <td style="text-align: left">128</td>
+          <td style="text-align: left">all</td>
+          <td style="text-align: left">-</td>
+          <td style="text-align: left">80</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">0.9775</td>
+          <td style="text-align: left">128</td>
+          <td style="text-align: left">all</td>
+          <td style="text-align: left">MPerClass</td>
+          <td style="text-align: left">10</td>
+      </tr>
+  </tbody>
 </table>
 <ul>
 <li>It is clear from the table that one needs a larger batch size (which is obvious in metric learning tasks).</li>

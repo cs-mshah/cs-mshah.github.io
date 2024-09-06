@@ -251,43 +251,43 @@
 <li><strong>Symmetric and Asymmetric-Key Cryptography</strong></li>
 </ul>
 <table>
-<thead>
-<tr>
-<th style="text-align:left">property</th>
-<th style="text-align:left">Symmetric-key</th>
-<th style="text-align:left">Asymmetric-key</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">Confidentiality</td>
-<td style="text-align:left">Block ciphers with chaining modes (e.g., AES-CBC)</td>
-<td style="text-align:left">Public-key encryption(e.g., El Gamal, RSA encryption)</td>
-</tr>
-<tr>
-<td style="text-align:left">Integrity and authentication</td>
-<td style="text-align:left">MACs (e.g., AES-CBC-MAC)</td>
-<td style="text-align:left">Digital signatures (e.g., RSA signatures). Alice computes a digital signature of her message using her private key, and appends the signature to her message. When Bob receives the message and its signature, he will be able to use Alice’s public key</td>
-</tr>
-<tr>
-<td style="text-align:left">Scheme overview</td>
-<td style="text-align:left">Alice uses her secret key to encrypt a message, and Bob uses the same secret key to decrypt the message</td>
-<td style="text-align:left">Alice can encrypt her message under Bob&rsquo;s public key and Bob will be able to decrypt using his private key.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">property</th>
+          <th style="text-align: left">Symmetric-key</th>
+          <th style="text-align: left">Asymmetric-key</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">Confidentiality</td>
+          <td style="text-align: left">Block ciphers with chaining modes (e.g., AES-CBC)</td>
+          <td style="text-align: left">Public-key encryption(e.g., El Gamal, RSA encryption)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Integrity and authentication</td>
+          <td style="text-align: left">MACs (e.g., AES-CBC-MAC)</td>
+          <td style="text-align: left">Digital signatures (e.g., RSA signatures). Alice computes a digital signature of her message using her private key, and appends the signature to her message. When Bob receives the message and its signature, he will be able to use Alice’s public key</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Scheme overview</td>
+          <td style="text-align: left">Alice uses her secret key to encrypt a message, and Bob uses the same secret key to decrypt the message</td>
+          <td style="text-align: left">Alice can encrypt her message under Bob&rsquo;s public key and Bob will be able to decrypt using his private key.</td>
+      </tr>
+  </tbody>
 </table>
 <ul>
 <li>
 <p><strong>Threat models</strong></p>
 <ul>
-<li>column 2: can eve trick <em>Alice</em> <figure><a class="lightgallery" href="/gvqiMkv_12575845182934023102.png" title="/gvqiMkv_12575845182934023102.png" data-thumbnail="/gvqiMkv_12575845182934023102.png">
+<li>column 2: can eve trick <em>Alice</em> <figure><a class="lightgallery" href="/gvqiMkv_15524620583973410134.png" title="/gvqiMkv_15524620583973410134.png" data-thumbnail="/gvqiMkv_15524620583973410134.png">
         <img
             
             loading="lazy"
-            src="/gvqiMkv_12575845182934023102.png"
-            srcset="/gvqiMkv_12575845182934023102.png, /gvqiMkv_12575845182934023102.png 1.5x, /gvqiMkv_12575845182934023102.png 2x"
+            src="/gvqiMkv_15524620583973410134.png"
+            srcset="/gvqiMkv_15524620583973410134.png, /gvqiMkv_15524620583973410134.png 1.5x, /gvqiMkv_15524620583973410134.png 2x"
             sizes="auto"
-            alt="/gvqiMkv_12575845182934023102.png" height="308"  width="863" >
+            alt="/gvqiMkv_15524620583973410134.png" height="308"  width="863" >
     </a></figure></li>
 <li>highlight - focus of this course.</li>
 <li>encryption algorithms provide security against chosen-plaintext/ciphertext attacks, both because those attacks are practical in some settings, and because it is in fact feasible to provide good security even against this very powerful attack model.</li>
@@ -330,52 +330,52 @@
 </li>
 </ul>
 <table>
-<thead>
-<tr>
-<th style="text-align:left">Mode</th>
-<th style="text-align:left">Encryption</th>
-<th style="text-align:left">Decryption</th>
-<th style="text-align:left">Parallelizable</th>
-<th style="text-align:left">IND-CPA secure</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">ECB (electronic code book)</td>
-<td style="text-align:left">$C_i=E_K(M_i)$</td>
-<td style="text-align:left">$M_i=D_K(C_i)$</td>
-<td style="text-align:left">Both Encryption and Decrytion</td>
-<td style="text-align:left">No</td>
-</tr>
-<tr>
-<td style="text-align:left">CBC (cipher block chaining)</td>
-<td style="text-align:left">$\begin{cases} C_0 = IV \cr C_i = E_K(P_i \oplus C_{i-1}) \end{cases}$</td>
-<td style="text-align:left">$P_i = D_K(C_i) \oplus C_{i-1}$</td>
-<td style="text-align:left">Only Decryption</td>
-<td style="text-align:left">Yes</td>
-</tr>
-<tr>
-<td style="text-align:left">CFB (ciphertext feedback)</td>
-<td style="text-align:left">$\begin{cases} C_0 = IV \cr C_i = E_K(C_{i-1}) \oplus P_i \end{cases}$</td>
-<td style="text-align:left">$P_i = E_K(C_{i-1}) \oplus C_i$</td>
-<td style="text-align:left">Only Decryption</td>
-<td style="text-align:left">Yes</td>
-</tr>
-<tr>
-<td style="text-align:left">OFB (output feedback)</td>
-<td style="text-align:left">$\begin{cases} Z_0 = IV \cr Z_i = E_K(Z_{i-1}) \cr C_i = M_i \oplus Z_i \end{cases}$</td>
-<td style="text-align:left">$P_i = C_i \oplus Z_i$</td>
-<td style="text-align:left">Only Decryption</td>
-<td style="text-align:left">Yes</td>
-</tr>
-<tr>
-<td style="text-align:left">CTR (counter)</td>
-<td style="text-align:left">$C_i = E_K(IV + i) \oplus M_i$</td>
-<td style="text-align:left">$M_i = E_K(IV + i) \oplus C_i$</td>
-<td style="text-align:left">Both Encryption and Decryption</td>
-<td style="text-align:left">Yes. $IV$ loss catastrophic</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Mode</th>
+          <th style="text-align: left">Encryption</th>
+          <th style="text-align: left">Decryption</th>
+          <th style="text-align: left">Parallelizable</th>
+          <th style="text-align: left">IND-CPA secure</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">ECB (electronic code book)</td>
+          <td style="text-align: left">$C_i=E_K(M_i)$</td>
+          <td style="text-align: left">$M_i=D_K(C_i)$</td>
+          <td style="text-align: left">Both Encryption and Decrytion</td>
+          <td style="text-align: left">No</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">CBC (cipher block chaining)</td>
+          <td style="text-align: left">$\begin{cases} C_0 = IV \cr C_i = E_K(P_i \oplus C_{i-1}) \end{cases}$</td>
+          <td style="text-align: left">$P_i = D_K(C_i) \oplus C_{i-1}$</td>
+          <td style="text-align: left">Only Decryption</td>
+          <td style="text-align: left">Yes</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">CFB (ciphertext feedback)</td>
+          <td style="text-align: left">$\begin{cases} C_0 = IV \cr C_i = E_K(C_{i-1}) \oplus P_i \end{cases}$</td>
+          <td style="text-align: left">$P_i = E_K(C_{i-1}) \oplus C_i$</td>
+          <td style="text-align: left">Only Decryption</td>
+          <td style="text-align: left">Yes</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">OFB (output feedback)</td>
+          <td style="text-align: left">$\begin{cases} Z_0 = IV \cr Z_i = E_K(Z_{i-1}) \cr C_i = M_i \oplus Z_i \end{cases}$</td>
+          <td style="text-align: left">$P_i = C_i \oplus Z_i$</td>
+          <td style="text-align: left">Only Decryption</td>
+          <td style="text-align: left">Yes</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">CTR (counter)</td>
+          <td style="text-align: left">$C_i = E_K(IV + i) \oplus M_i$</td>
+          <td style="text-align: left">$M_i = E_K(IV + i) \oplus C_i$</td>
+          <td style="text-align: left">Both Encryption and Decryption</td>
+          <td style="text-align: left">Yes. $IV$ loss catastrophic</td>
+      </tr>
+  </tbody>
 </table>
 <ul>
 <li><strong>ECB(electronic code book) mode</strong>
@@ -383,14 +383,14 @@
 <li>plaintext $M$ is simply broken into $n$-bit blocks $M_1 \dots M_l$,</li>
 <li>Encryption: $C_i=E_K(M_i)$</li>
 <li>Decryption $M_i=D_K(C_i)$</li>
-<li>flawed as it leaks information. (if $M_i=M_j$ then $C_i=C_j$) <figure><a class="lightgallery" href="/ECB_decryption_7322903587196323683.png" title="/ECB_decryption_7322903587196323683.png" data-thumbnail="/ECB_decryption_7322903587196323683.png">
+<li>flawed as it leaks information. (if $M_i=M_j$ then $C_i=C_j$) <figure><a class="lightgallery" href="/ECB_decryption_15591543252708967055.png" title="/ECB_decryption_15591543252708967055.png" data-thumbnail="/ECB_decryption_15591543252708967055.png">
         <img
             
             loading="lazy"
-            src="/ECB_decryption_7322903587196323683.png"
-            srcset="/ECB_decryption_7322903587196323683.png, /ECB_decryption_7322903587196323683.png 1.5x, /ECB_decryption_7322903587196323683.png 2x"
+            src="/ECB_decryption_15591543252708967055.png"
+            srcset="/ECB_decryption_15591543252708967055.png, /ECB_decryption_15591543252708967055.png 1.5x, /ECB_decryption_15591543252708967055.png 2x"
             sizes="auto"
-            alt="/ECB_decryption_7322903587196323683.png" height="773"  width="1920" >
+            alt="/ECB_decryption_15591543252708967055.png" height="773"  width="1920" >
     </a></figure></li>
 </ul>
 </li>
@@ -398,12 +398,12 @@
 <ul>
 <li>$IV$ : random $n$-bit string called initialization vector, new for every message (to be used only <strong>once</strong>), public. (also called <em>nonce - number used once</em>)</li>
 <li>Encryption: $\begin{cases} C_0 = IV \cr C_i = E_K(P_i \oplus C_{i-1}) \end{cases}$ (<strong>Cannot</strong> be parallelized)</li>
-<li>Decryption: $P_i = D_K(C_i) \oplus C_{i-1}$ (<strong>Can</strong> be parallelized) <figure><a class="lightgallery" href="/CBC_encryption_15925797743449453265.png" title="image#invert" data-thumbnail="/CBC_encryption_15925797743449453265.png">
+<li>Decryption: $P_i = D_K(C_i) \oplus C_{i-1}$ (<strong>Can</strong> be parallelized) <figure><a class="lightgallery" href="/CBC_encryption_6591305203981222164.png" title="image#invert" data-thumbnail="/CBC_encryption_6591305203981222164.png">
         <img
             
             loading="lazy"
-            src="/CBC_encryption_15925797743449453265.png"
-            srcset="/CBC_encryption_15925797743449453265.png, /CBC_encryption_15925797743449453265.png 1.5x, /CBC_encryption_15925797743449453265.png 2x"
+            src="/CBC_encryption_6591305203981222164.png"
+            srcset="/CBC_encryption_6591305203981222164.png, /CBC_encryption_6591305203981222164.png 1.5x, /CBC_encryption_6591305203981222164.png 2x"
             sizes="auto"
             alt="image#invert" height="773"  width="1920" >
     </a></figure></li>
@@ -413,14 +413,14 @@
 <li><strong>CFB Mode (Ciphertext Feedback Mode)</strong>
 <ul>
 <li>Encryption: $\begin{cases} C_0 = IV \cr C_i = E_K(C_{i-1}) \oplus P_i \end{cases}$</li>
-<li>Decryption: $P_i = E_K(C_{i-1}) \oplus C_i$ <figure><a class="lightgallery" href="/CFB_encryption_14559316955844386733.png" title="/CFB_encryption_14559316955844386733.png" data-thumbnail="/CFB_encryption_14559316955844386733.png">
+<li>Decryption: $P_i = E_K(C_{i-1}) \oplus C_i$ <figure><a class="lightgallery" href="/CFB_encryption_12347922406724955827.png" title="/CFB_encryption_12347922406724955827.png" data-thumbnail="/CFB_encryption_12347922406724955827.png">
         <img
             
             loading="lazy"
-            src="/CFB_encryption_14559316955844386733.png"
-            srcset="/CFB_encryption_14559316955844386733.png, /CFB_encryption_14559316955844386733.png 1.5x, /CFB_encryption_14559316955844386733.png 2x"
+            src="/CFB_encryption_12347922406724955827.png"
+            srcset="/CFB_encryption_12347922406724955827.png, /CFB_encryption_12347922406724955827.png 1.5x, /CFB_encryption_12347922406724955827.png 2x"
             sizes="auto"
-            alt="/CFB_encryption_14559316955844386733.png" height="773"  width="1920" >
+            alt="/CFB_encryption_12347922406724955827.png" height="773"  width="1920" >
     </a></figure></li>
 </ul>
 </li>
@@ -544,12 +544,12 @@
 <li>$S = B^a = A^b = g^{ab} = g^{ba} \bmod p$. $S$ is the shared secret.</li>
 <li>Elliptic curve Diffie-Hellman: smaller keys with same security</li>
 <li>Protocol only resistant against Eve but not Mallory.
-<figure><a class="lightgallery" href="/diffie_mitm_7818172884421593048.png" title="Diagram of the Diffie Hellman key exchange between Alice and Bob with Mallory in the middle" data-thumbnail="/diffie_mitm_7818172884421593048.png">
+<figure><a class="lightgallery" href="/diffie_mitm_12500555285513005701.png" title="Diagram of the Diffie Hellman key exchange between Alice and Bob with Mallory in the middle" data-thumbnail="/diffie_mitm_12500555285513005701.png">
         <img
             
             loading="lazy"
-            src="/diffie_mitm_7818172884421593048.png"
-            srcset="/diffie_mitm_7818172884421593048.png, /diffie_mitm_7818172884421593048.png 1.5x, /diffie_mitm_7818172884421593048.png 2x"
+            src="/diffie_mitm_12500555285513005701.png"
+            srcset="/diffie_mitm_12500555285513005701.png, /diffie_mitm_12500555285513005701.png 1.5x, /diffie_mitm_12500555285513005701.png 2x"
             sizes="auto"
             alt="Diagram of the Diffie Hellman key exchange between Alice and Bob with Mallory in the middle" height="298"  width="539" >
     </a></figure></li>
@@ -669,24 +669,24 @@
 </li>
 </ul>
 <table>
-<thead>
-<tr>
-<th>Block 1</th>
-<th>Block 2</th>
-<th>Block 3</th>
-<th>Block 4</th>
-<th>Block 5</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$m_1$</td>
-<td>$m_2, H(\text{Block}_1)$</td>
-<td>$m_3, H(\text{Block}_2)$</td>
-<td>$m_4, H(\text{Block}_3)$</td>
-<td>$m_5, H(\text{Block}_4)$</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Block 1</th>
+          <th style="text-align: left">Block 2</th>
+          <th style="text-align: left">Block 3</th>
+          <th style="text-align: left">Block 4</th>
+          <th style="text-align: left">Block 5</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">$m_1$</td>
+          <td style="text-align: left">$m_2, H(\text{Block}_1)$</td>
+          <td style="text-align: left">$m_3, H(\text{Block}_2)$</td>
+          <td style="text-align: left">$m_4, H(\text{Block}_3)$</td>
+          <td style="text-align: left">$m_5, H(\text{Block}_4)$</td>
+      </tr>
+  </tbody>
 </table>
 <ul>
 <li>consensus
@@ -738,14 +738,14 @@
 </li>
 <li>Layer 4: Transport of data</li>
 <li>Layer 7: Applications and services (the web)</li>
-<li><figure><a class="lightgallery" href="/FWpM6wH_2793690339083522391.png" title="/FWpM6wH_2793690339083522391.png" data-thumbnail="/FWpM6wH_2793690339083522391.png">
+<li><figure><a class="lightgallery" href="/FWpM6wH_16996803669046313195.png" title="/FWpM6wH_16996803669046313195.png" data-thumbnail="/FWpM6wH_16996803669046313195.png">
         <img
             
             loading="lazy"
-            src="/FWpM6wH_2793690339083522391.png"
-            srcset="/FWpM6wH_2793690339083522391.png, /FWpM6wH_2793690339083522391.png 1.5x, /FWpM6wH_2793690339083522391.png 2x"
+            src="/FWpM6wH_16996803669046313195.png"
+            srcset="/FWpM6wH_16996803669046313195.png, /FWpM6wH_16996803669046313195.png 1.5x, /FWpM6wH_16996803669046313195.png 2x"
             sizes="auto"
-            alt="/FWpM6wH_2793690339083522391.png" height="325"  width="269" >
+            alt="/FWpM6wH_16996803669046313195.png" height="325"  width="269" >
     </a></figure></li>
 <li>Each layer has its own set of <strong>protocols</strong>
 <ul>
@@ -825,14 +825,14 @@
 <li>the authentication server presents both the client and the access point with a random <strong>PMK (Pairwise Master Key)</strong> to use instead of the PSK</li>
 </ul>
 </li>
-<li><figure><a class="lightgallery" href="/wpa2_13433499066971873586.png" title="/wpa2_13433499066971873586.png" data-thumbnail="/wpa2_13433499066971873586.png">
+<li><figure><a class="lightgallery" href="/wpa2_11200477035984086215.png" title="/wpa2_11200477035984086215.png" data-thumbnail="/wpa2_11200477035984086215.png">
         <img
             
             loading="lazy"
-            src="/wpa2_13433499066971873586.png"
-            srcset="/wpa2_13433499066971873586.png, /wpa2_13433499066971873586.png 1.5x, /wpa2_13433499066971873586.png 2x"
+            src="/wpa2_11200477035984086215.png"
+            srcset="/wpa2_11200477035984086215.png, /wpa2_11200477035984086215.png 1.5x, /wpa2_11200477035984086215.png 2x"
             sizes="auto"
-            alt="/wpa2_13433499066971873586.png" height="828"  width="532" >
+            alt="/wpa2_11200477035984086215.png" height="1796"  width="1136" >
     </a></figure></li>
 <li>all further communication between the client and the access point is encrypted with the <strong>PTK</strong></li>
 <li>The GTK is used for messages broadcast to the entire network (i.e. sent to the broadcast MAC address, <code>ff:ff:ff:ff:ff:ff</code>). The GTK is the same for everyone on the network, so everyone can encrypt/send and decrypt/receive broadcast messages.</li>
@@ -869,30 +869,30 @@
 </li>
 </ul>
 <table>
-<thead>
-<tr>
-<th style="text-align:left">Sequence number (SYN)</th>
-<th style="text-align:left">Acknowldgement number (ACK)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">32 bit</td>
-<td style="text-align:left">32 bit</td>
-</tr>
-<tr>
-<td style="text-align:left">index of the first byte sent</td>
-<td style="text-align:left">index of the last byte received, plus 1. Ex: in packets from the client to the server, the ACK number is the next unsent byte in the server-to-client stream, and in packets from the server to the client, the ACK number is the next unsent byte in the client-to-server stream</td>
-</tr>
-<tr>
-<td style="text-align:left">reconstruct the message in the correct order</td>
-<td style="text-align:left">after a timeout period, the sender will re-send that packet</td>
-</tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">Each TCP packet can contain both data and an acknowledgment that a previous packet was received</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Sequence number (SYN)</th>
+          <th style="text-align: left">Acknowldgement number (ACK)</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">32 bit</td>
+          <td style="text-align: left">32 bit</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">index of the first byte sent</td>
+          <td style="text-align: left">index of the last byte received, plus 1. Ex: in packets from the client to the server, the ACK number is the next unsent byte in the server-to-client stream, and in packets from the server to the client, the ACK number is the next unsent byte in the client-to-server stream</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">reconstruct the message in the correct order</td>
+          <td style="text-align: left">after a timeout period, the sender will re-send that packet</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left">Each TCP packet can contain both data and an acknowledgment that a previous packet was received</td>
+      </tr>
+  </tbody>
 </table>
 <ul>
 <li>To end a connection, one side sends a FIN (a packet with the FIN flag set), and the other side replies with a FIN-ACK.</li>
@@ -951,14 +951,14 @@
 </ul>
 <h3 id="dns" class="headerLink">
     <a href="#dns" class="header-mark"></a>DNS</h3><ul>
-<li>A DNS query for <code>eecs.berkeley.edu</code> <figure><a class="lightgallery" href="/dnsquery_125979849508553388.png" title="/dnsquery_125979849508553388.png" data-thumbnail="/dnsquery_125979849508553388.png">
+<li>A DNS query for <code>eecs.berkeley.edu</code> <figure><a class="lightgallery" href="/dnsquery_11209498132212607773.png" title="/dnsquery_11209498132212607773.png" data-thumbnail="/dnsquery_11209498132212607773.png">
         <img
             
             loading="lazy"
-            src="/dnsquery_125979849508553388.png"
-            srcset="/dnsquery_125979849508553388.png, /dnsquery_125979849508553388.png 1.5x, /dnsquery_125979849508553388.png 2x"
+            src="/dnsquery_11209498132212607773.png"
+            srcset="/dnsquery_11209498132212607773.png, /dnsquery_11209498132212607773.png 1.5x, /dnsquery_11209498132212607773.png 2x"
             sizes="auto"
-            alt="/dnsquery_125979849508553388.png" height="542"  width="1828" >
+            alt="/dnsquery_11209498132212607773.png" height="542"  width="1828" >
     </a></figure>
 <ul>
 <li><em>uses UDP</em></li>
@@ -969,42 +969,42 @@
 <li>A <strong>DNS Recursive Resolver</strong> provided by your Internet service provider (ISP), which sends the queries, processes the responses, and maintains an internal cache of records. When performing a lookup, the <strong>DNS Stub Resolver</strong> on your computer sends a query to the recursive resolver, lets it do all the work, and receives the response.</li>
 </ul>
 <table>
-<thead>
-<tr>
-<th>16 bits</th>
-<th>16 bits</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Identification (used to match requests to responses)</td>
-<td>Flags (<code>NOERROR</code>, <code>NXDOMAIN</code>)</td>
-</tr>
-<tr>
-<td># Questions (=1)</td>
-<td># Answer RRs (Resource records)</td>
-</tr>
-<tr>
-<td># Authority RRs</td>
-<td># Additional RRs</td>
-</tr>
-<tr>
-<td>Questions (variable # of RRs)</td>
-<td></td>
-</tr>
-<tr>
-<td>Answers (variable # of RRs)</td>
-<td></td>
-</tr>
-<tr>
-<td>Authority (variable # of RRs)</td>
-<td></td>
-</tr>
-<tr>
-<td>Additional info (variable # of RRs)</td>
-<td></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">16 bits</th>
+          <th style="text-align: left">16 bits</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">Identification (used to match requests to responses)</td>
+          <td style="text-align: left">Flags (<code>NOERROR</code>, <code>NXDOMAIN</code>)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"># Questions (=1)</td>
+          <td style="text-align: left"># Answer RRs (Resource records)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"># Authority RRs</td>
+          <td style="text-align: left"># Additional RRs</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Questions (variable # of RRs)</td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Answers (variable # of RRs)</td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Authority (variable # of RRs)</td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Additional info (variable # of RRs)</td>
+          <td style="text-align: left"></td>
+      </tr>
+  </tbody>
 </table>
 <ul>
 <li>A DNS record key is formally defined as a 3-tuple <code>&lt;Name, Class, Type&gt;</code></li>
@@ -1067,22 +1067,22 @@
 <li>The <strong><code>DS</code> (Delegated Signer) type record</strong> is a hash of the signer’s name and a child’s public key.</li>
 </ul>
 <table>
-<thead>
-<tr>
-<th style="text-align:left">KSK (Key Signing Key)</th>
-<th style="text-align:left">ZSK (Zone Signing Key)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">used to sign ZSK</td>
-<td style="text-align:left">used to sign everything else</td>
-</tr>
-<tr>
-<td style="text-align:left">endorsed by the parent</td>
-<td style="text-align:left">resolver verifies by using public ZSK</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">KSK (Key Signing Key)</th>
+          <th style="text-align: left">ZSK (Zone Signing Key)</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">used to sign ZSK</td>
+          <td style="text-align: left">used to sign everything else</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">endorsed by the parent</td>
+          <td style="text-align: left">resolver verifies by using public ZSK</td>
+      </tr>
+  </tbody>
 </table>
 <ul>
 <li>DNSSEC sign records <em>offline</em>–records</li>
@@ -1201,27 +1201,27 @@
 <li><strong>ESP</strong>
 <ul>
 <li>Provides source authentication, data integrity and confidentiality</li>
-<li><em>transport mode</em> - end to end hosts <figure><a class="lightgallery" href="/Hw5ptcz_5954519468889952178.png" title="/Hw5ptcz_5954519468889952178.png" data-thumbnail="/Hw5ptcz_5954519468889952178.png">
+<li><em>transport mode</em> - end to end hosts <figure><a class="lightgallery" href="/Hw5ptcz_13886464981973781114.png" title="/Hw5ptcz_13886464981973781114.png" data-thumbnail="/Hw5ptcz_13886464981973781114.png">
         <img
             
             loading="lazy"
-            src="/Hw5ptcz_5954519468889952178.png"
-            srcset="/Hw5ptcz_5954519468889952178.png, /Hw5ptcz_5954519468889952178.png 1.5x, /Hw5ptcz_5954519468889952178.png 2x"
+            src="/Hw5ptcz_13886464981973781114.png"
+            srcset="/Hw5ptcz_13886464981973781114.png, /Hw5ptcz_13886464981973781114.png 1.5x, /Hw5ptcz_13886464981973781114.png 2x"
             sizes="auto"
-            alt="/Hw5ptcz_5954519468889952178.png" height="548"  width="1224" >
+            alt="/Hw5ptcz_13886464981973781114.png" height="548"  width="1224" >
     </a></figure>
 <ul>
 <li>original IP header is visible</li>
 </ul>
 </li>
-<li><em>tunnel mode</em> (uses gateway) <figure><a class="lightgallery" href="/VC56oqt_11424595211207157593.png" title="/VC56oqt_11424595211207157593.png" data-thumbnail="/VC56oqt_11424595211207157593.png">
+<li><em>tunnel mode</em> (uses gateway) <figure><a class="lightgallery" href="/VC56oqt_18129217859082778159.png" title="/VC56oqt_18129217859082778159.png" data-thumbnail="/VC56oqt_18129217859082778159.png">
         <img
             
             loading="lazy"
-            src="/VC56oqt_11424595211207157593.png"
-            srcset="/VC56oqt_11424595211207157593.png, /VC56oqt_11424595211207157593.png 1.5x, /VC56oqt_11424595211207157593.png 2x"
+            src="/VC56oqt_18129217859082778159.png"
+            srcset="/VC56oqt_18129217859082778159.png, /VC56oqt_18129217859082778159.png 1.5x, /VC56oqt_18129217859082778159.png 2x"
             sizes="auto"
-            alt="/VC56oqt_11424595211207157593.png" height="294"  width="1132" >
+            alt="/VC56oqt_18129217859082778159.png" height="294"  width="1132" >
     </a></figure>
 <ul>
 <li>default IPSec mode</li>
