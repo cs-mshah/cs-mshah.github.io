@@ -364,7 +364,7 @@ partial "scratch/style.html" -}}
 
 {{/* Config script */}}
 <script>
-    { { - $config | jsonify | printf "window.config=%s;" | safeJS -} }
+    {{- $config | jsonify | printf "window.config=%s;" | safeJS -}}
 </script>
 
 {{- range (.Scratch.Get "this").script -}}
