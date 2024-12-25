@@ -20,7 +20,7 @@
     typographer = true
   [goldmark.renderer]
     # whether to use HTML tags directly in the document
-    unsafe = false
+    unsafe = true
 # Table Of Contents settings
 [tableOfContents]
   startLevel = 2

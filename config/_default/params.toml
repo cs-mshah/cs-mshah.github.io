@@ -20,6 +20,14 @@ license = '<a rel="license external nofollow noopener noreffer" href="https://cr
 bundle = false
 # [Experimental] cache remote images, more info: https://github.com/HEIGE-PCloud/DoIt/pull/860#issue-1574342372
 cacheRemoteImages = true
+
+[author]
+  name = "Manan"
+  email = "mt-shah@hotmail.com"
+  link = "https://github.com/cs-mshah"
+  avatar = "https://avatars.githubusercontent.com/cs-mshah"
+  gravatarEmail = "mt-shah@hotmail.com"
+
 # Header config
 [header]
   # desktop header mode ("fixed", "normal", "auto")
@@ -65,7 +73,7 @@ cacheRemoteImages = true
 # Section (all posts) page config
 [section]
   # special amount of posts in each section page
-  paginate = 20
+#   paginate = 20
   # date format (month and day)
   dateFormat = "02-01"
   # amount of RSS pages
@@ -80,7 +88,7 @@ cacheRemoteImages = true
 # List (category or tag) page config
 [list]
   # special amount of posts in each list page
-  paginate = 20
+#   paginate = 20
   # date format (month and day)
   dateFormat = "02-01"
   # amount of RSS pages
@@ -100,8 +108,8 @@ cacheRemoteImages = true
   ruby = true
   # whether to enable the fraction extended syntax
   fraction = true
-  # whether to enable the fontawesome extended syntax
-  fontawesome = true
+  # whether to enable the fontawesome extended syntax (remove this. deprecated)
+#   fontawesome = true
   # whether to show link to Raw Markdown content of the content
   linkToMarkdown = true
   # configure the link to view source the post

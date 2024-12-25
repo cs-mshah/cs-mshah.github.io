@@ -73,7 +73,7 @@ keywords = ["Blog", "OpenSource", "Coding", "Programming", "Deep Learning", "Mac
   [home.posts]
     enable = true
     # special amount of posts in each home posts page
-    paginate = 5
+    # paginate = 5
 # Social config in home page
 [social]
   Angellist = ""
