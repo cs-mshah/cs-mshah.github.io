@@ -1,3 +1,24 @@
 // ==============================
 // Override Variables
 // ==============================
+// Override global font family
+
+@import url('https: //fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap');
+$global-font-family:
+    Nunito,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    PingFang SC,
+    Microsoft YaHei UI,
+    Segoe UI,
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    Fira Sans,
+    Droid Sans,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif !default;
