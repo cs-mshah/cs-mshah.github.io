@@ -5,7 +5,7 @@ keywords = ["Blog", "OpenSource", "Coding", "Programming", "Deep Learning", "Mac
 # App icon config
 [app]
   # optional site title override for the app when added to an iOS home screen or Android launcher
-  title = "Manan's Blog"
+  title = "Manan Shah"
   # whether to omit favicon resource links
   noFavicon = false
   # modern SVG favicon to use in place of older style .png and .ico files
@@ -60,7 +60,7 @@ keywords = ["Blog", "OpenSource", "Coding", "Programming", "Deep Learning", "Mac
     # URL the avatar links to
     avatarLinkURL = ""
     # title shown in home page (HTML format is supported)
-    title = "Manan's Blog"
+    title = ""
     # subtitle shown in home page
     subtitle = "My personal blog where I share my technical musings!"
     # whether to use typeit animation for subtitle

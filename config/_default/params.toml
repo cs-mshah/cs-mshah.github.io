@@ -1,5 +1,5 @@
 # website title
-title = "Manan's Blog"
+title = "Manan Shah"
 # DoIt theme version
 version = "0.4.0"
 # site default theme ("light", "dark", "black", "auto")
@@ -41,7 +41,7 @@ cacheRemoteImages = true
     # URL of the LOGO
     logo = ""
     # title name
-    name = "Manan's Blog"
+    name = ""
     # you can add extra information before the name (HTML format is supported), such as icons
     pre = "<i class='far fa-edit fa-fw'></i>"
     # you can add extra information after the name (HTML format is supported), such as icons

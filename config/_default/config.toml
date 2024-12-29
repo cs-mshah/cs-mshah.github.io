@@ -5,7 +5,7 @@ defaultContentLanguage = "en"
 # theme
 theme = "DoIt"
 # website title
-title = "Manan's Blog"
+title = "Manan Shah"
 # whether to use robots.txt
 enableRobotsTXT = false
 # whether to use git commit log
