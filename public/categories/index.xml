@@ -1,8 +1,14 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>Categories - Category - Manan Shah</title>
-        <link>https://cs-mshah.github.io/categories/</link>
-        <description>Categories - Category - Manan Shah</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>mt-shah@hotmail.com (Manan)</managingEditor>
-            <webMaster>mt-shah@hotmail.com (Manan)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><atom:link href="https://cs-mshah.github.io/categories/" rel="self" type="application/rss+xml" /></channel>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Manan Shah</title>
+    <link>https://cs-mshah.github.io/categories/</link>
+    <description>Recent content in Categories on Manan Shah</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>mt-shah@hotmail.com (Manan)</managingEditor>
+    <webMaster>mt-shah@hotmail.com (Manan)</webMaster>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <atom:link href="https://cs-mshah.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
 </rss>
