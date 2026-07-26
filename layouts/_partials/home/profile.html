@@ -1,26 +1,6 @@
 {{- $profile := .Site.Params.home.profile -}}
 {{- $posts := .Site.Params.home.posts -}}
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Manan Shah">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-    <title>Manan Shah</title>
-
-    <!-- Favicon -->
-    <!-- <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦚🏍🚁</text></svg>"> -->
-
-    <!-- Stylesheet -->
-    <!-- <link rel="stylesheet" type="text/css" href="stylesheet.css"> -->
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap"
-        rel="stylesheet">
-
-    <!-- Inline Styles -->
-    <style>
-
+<style>
         /* latin-ext */
         @font-face {
         font-family: 'Lato';
@@ -104,6 +84,14 @@
             border-radius: 15px;
         }
 
+        .homepage .rounded-video {
+            width: 140px;
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            display: block;
+        }
+
         .homepage a {
             color: #1772d0;
             text-decoration: none;
@@ -140,9 +128,18 @@
             background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
         }
 
+        .homepage .section-title {
+            margin: 0 0 12px 0;
+        }
+
+        .homepage .year-heading {
+            margin: 0 0 10px 0;
+            padding: 0;
+        }
+
         .homepage hr.year_hr {
             width: 200%;
-            margin: 0px;
+            margin: 6px 0 10px 0;
         }
 
         .homepage papertitle {
@@ -180,8 +177,7 @@
         .homepage span.highlight {
             background-color: #ffffd0;
         }
-    </style>
-</head>
+</style>
 
 <table class="homepage"
     style="width:100%;max-width:850px;border:20px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
@@ -203,20 +199,26 @@
                                 </p>
                                 <p style="margin-top: 4px;">
                                     mt-shah@hotmail.com
+                                    &nbsp;/&nbsp;
+                                    <a href="https://drive.google.com/file/d/1r3vWjUlk8E0FnfiboV3ItbFeOd8oNRFk/view?usp=sharing" target="_blank" rel="noopener noreferrer">[CV]</a>
                                 </p>
                                 <br>
                                 <p style="line-height:1.4; font-family: 'Nunito', sans-serif; font-weight: 300">
-                                    I am a <b>master's student in computer vision (MSCV)</b> at <b>Carnegie Mellon University</b>. My research interests lie in <b>vision-language models (VLMs), 3D vision, and generative models</b>. 
+                                    I am a <b>master's student in computer vision (MSCV)</b> at <b>Carnegie Mellon University</b>, and currently a <b>Machine Learning Engineer Intern</b> at <a href="https://www.adobe.com/"><b>Adobe</b></a> (Firefly Foundry). My recent work has been in <b>video diffusion models</b> and <b>3D/4D reconstruction</b>.
                                     <br>
-                                    Previously, I worked at <a href="https://streamingo.ai/home">streamingo.ai</a> on human activity recognition with VLMs, and as a research assistant at the 
-                                    <a href="https://val.cds.iisc.ac.in/">Vision and AI Lab, IISc</a>, under the mentorship of <a href="http://cds.iisc.ac.in/faculty/venky/">Prof. Venkatesh Babu</a>,     
-                                    where I explored diffusion models and 3D Gaussian splatting. Before that, I was a software development engineer at <a href="https://www.cashfree.com/">Cashfree Payments</a>.
+                                    Previously, I was a research assistant at the
+                                    <a href="https://val.cds.iisc.ac.in/">Vision and AI Lab, IISc</a>, under the mentorship of <a href="http://cds.iisc.ac.in/faculty/venky/">Prof. Venkatesh Babu</a>,
+                                    working on diffusion models and 3D Gaussian splatting.
+                                </p>
+                                <br>
+                                <p style="line-height:1.4; font-family: 'Nunito', sans-serif; font-weight: 700">
+                                    I am graduating in December 2026 and actively looking for full-time Machine Learning Engineer or Research Engineer roles in perception.
                                 </p>
                                 <br>
                                 <p style="line-height:1.4; font-family: 'Nunito', sans-serif; font-weight: 300">
                                     I also maintain a blog where I jot down learnings, experiences, and ideas—writing helps me clarify concepts and share insights with others.
                                     <br>
-                                    Feel free to reach out if you'd like to discuss interesting problems in computer vision!
+                                    Feel free to reach out if you'd like to discuss interesting problems or opportunities!
                                 </p>
 
                                 <br>
@@ -279,7 +281,7 @@
                                 </p>
                             </td>
                             <td style="padding-top:3%;padding-bottom:3%;padding-left:3%;width:40%;max-width:40%;">
-                                <img class="rounded-image" src="/images/avatar.jpg">
+                                <img class="rounded-image" src="/images/avatar.jpg" alt="Manan Shah" width="320" height="320" loading="eager">
                             </td>
                         </tr>
                     </tbody>
@@ -298,6 +300,12 @@
                                     <font size="5">News</font>
                                 </p>
                                 <ul>
+                                    <li>
+                                        <font color="#888888">[Jul 26]</font> Our work, <a href="https://lift4d.github.io/"><strong>Lift4D</strong></a>, got accepted to <strong>SIGGRAPH Asia 2026</strong>.
+                                    </li>
+                                    <li>
+                                        <font color="#888888">[May 26]</font> Joined <a href="https://www.adobe.com/">Adobe</a> as a <strong>Machine Learning Engineer Intern</strong> on the Firefly Foundry team.
+                                    </li>
                                     <li>
                                         <font color="#888888">[Aug 25]</font> Started my master's in <strong>Computer Vision (MSCV)</strong> at <strong>CMU RI</strong>.
                                     </li>
@@ -340,7 +348,7 @@
                 <table
                     style="width:100%;border:0px;border-spacing:0px;border-collapse:collapse;margin-right:auto;margin-left:auto;">
                     <tbody>
-                        <p style="text-align:left; font-family: 'Nunito', sans-serif; font-weight: 400">
+                        <p class="section-title" style="text-align:left; font-family: 'Nunito', sans-serif; font-weight: 400">
                             <font size="5">
                                 Publications
                             </font>
@@ -348,12 +356,54 @@
 
 
                         <td>
-                            <p
-                                style="padding-bottom:0px; margin-bottom: 0px; margin-top: 0px; text-align:left; font-family: 'Nunito', sans-serif; font-weight: 400">
+                            <p class="year-heading"
+                                style="text-align:left; font-family: 'Nunito', sans-serif; font-weight: 400">
+                                <font size="4.5">
+                                    2026
+                                </font>
+                                <hr class="year_hr">
+                            </p>
+                        </td>
+
+                        <!-- Lift4D -->
+                        <tr>
+                            <td style="padding-top:10px; padding-bottom:10px; width:20%; vertical-align:middle;">
+                                <video class="rounded-video" autoplay muted loop playsinline preload="metadata" aria-label="Lift4D teaser">
+                                    <source src="/videos/lift4d-teaser.mp4" type="video/mp4">
+                                </video>
+                            </td>
+                            <td style="padding-left:5px;padding-right:40px;padding-top:20;padding-bottom:20;width:80%;vertical-align:top">
+                                <papertitle>
+                                    <font size="3">Lift4D: Harmonizing Single-View 3D Estimation for 4D Reconstruction In-the-Wild
+                                    </font>
+                                </papertitle>
+                                <br>
+                                <font size="2">
+                                    Yehonathan Litman,
+                                    Xiaoxuan Ma,
+                                    <strong>Manan Shah</strong>,
+                                    Nicolás Ugrinovic,
+                                    Kris Kitani*,
+                                    Fernando De la Torre*,
+                                    Shubham Tulsiani*
+                                </font>
+                                <br>
+                                <em>SIGGRAPH Asia 2026</em>
+                                <br>
+                                <a href="https://lift4d.github.io/">[project page]</a>
+                                <a href="https://arxiv.org/abs/2606.23688">[paper]</a>
+                                <a href="https://github.com/yehonathanlitman/Lift4D">[code]</a>
+                                <br>
+                            </td>
+                        </tr>
+
+                        <td>
+                            <p class="year-heading"
+                                style="text-align:left; font-family: 'Nunito', sans-serif; font-weight: 400">
                                 <font size="4.5">
                                     2025
                                 </font>
-                                <hr class="year_hr" style="margin-top: 0px;">
+                                <hr class="year_hr">
                             </p>
                         </td>
                         
@@ -362,9 +412,9 @@
                             <td style="padding-top:10px; padding-bottom:10px; width:20%; vertical-align:middle;">
                                 <div class="one" style="position:relative; display:inline-block;">
                                     <div class="two" style="position:absolute; top:0; left:0; opacity:0; transition:opacity 0.3s ease;">
-                                        <img class="rounded-image" src="/images/mirrorverse-after.png" width="140">
+                                        <img class="rounded-image" src="/images/mirrorverse-after.png" width="140" height="140" alt="MirrorVerse after">
                                     </div>
-                                    <img class="rounded-image" src="/images/mirrorverse-before.png" width="140">
+                                    <img class="rounded-image" src="/images/mirrorverse-before.png" width="140" height="140" alt="MirrorVerse before">
                                 </div>
                             </td>
                         
@@ -395,10 +445,9 @@
                                 <div class="one" style="position:relative; display:inline-block;">
                                     <div class="two"
                                         style="position:absolute; top:0; left:0; opacity:0; transition:opacity 0.3s ease;">
-                                        <img class="rounded-image" src="/images/reflecting-reality-after.png"
-                                            width="140">
+                                        <img class="rounded-image" src="/images/reflecting-reality-after.png" width="140" height="140" alt="Reflecting Reality after">
                                     </div>
-                                    <img class="rounded-image" src="/images/reflecting-reality-before.png" width="140">
+                                    <img class="rounded-image" src="/images/reflecting-reality-before.png" width="140" height="140" alt="Reflecting Reality before">
                                 </div>
                             </td>
 
